@@ -258,7 +258,7 @@
               rel="noopener noreferrer"
               class="text-catppuccin-blue hover:text-catppuccin-sapphire"
             >
-              <span class="font-mono">viewCompany()</span>
+              <span class="font-mono">view company →</span>
             </a>
           </div>
           <div
@@ -279,7 +279,7 @@
               rel="noopener noreferrer"
               class="text-catppuccin-blue hover:text-catppuccin-sapphire"
             >
-              <span class="font-mono">viewCompany()</span>
+              <span class="font-mono">view company →</span>
             </a>
           </div>
         </div>
@@ -360,19 +360,18 @@
                 "https://github.com/mitchellabrouwer/financial-categoriser",
             },
           },
-          // Issue running this project
-          //   {
-          //     title: "Mac Voice Whispers",
-          //     description:
-          //       "A simple macOS app that uses OpenAI's Whisper model to convert spoken words into text directly within the application. Built with Swift and SwiftUI.",
-          //     type: "single",
-          //     image: "images/projects/mac-voice-whispers.png",
-          //     technologies: ["Swift", "SwiftUI", "AI"],
-          //     links: {
-          //       repository:
-          //         "https://github.com/mitchellabrouwer/mac_voice_whispers",
-          //     },
-          //   },
+          {
+            title: "Mac Voice Whispers",
+            description:
+              "A simple macOS app that uses OpenAI's Whisper model to convert spoken words into text directly within the application. Built with Swift and SwiftUI.",
+            type: "single",
+            image: "images/projects/mac-voice-whispers.png",
+            technologies: ["Swift", "SwiftUI", "AI"],
+            links: {
+              repository:
+                "https://github.com/mitchellabrouwer/mac_voice_whispers",
+            },
+          },
           {
             title: "Phonics Game for Kids",
             description:
@@ -392,10 +391,20 @@
 
         // Project card template
         function createProjectCard(project) {
+          // Determine the primary link for the project
+          let primaryLink = "";
+          if (project.links.demo) {
+            primaryLink = project.links.demo;
+          } else if (project.links.repository) {
+            primaryLink = project.links.repository;
+          } else if (project.links.company) {
+            primaryLink = project.links.company;
+          }
+
           const imageSection =
             project.type === "mockups"
               ? `
-            <div class="flex gap-2 p-4 bg-catppuccin-crust h-72">
+            <div class="flex gap-2 p-4 bg-catppuccin-surface1 h-72">
               <img
                 src="${project.images[0]}"
                 alt="${project.title} - Mobile View 1"
@@ -423,62 +432,70 @@
             </div>
           `;
 
-          return `
-            <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col">
-              ${imageSection}
-              <div class="p-4 flex flex-col flex-grow">
-                <h3 class="text-xl font-bold mb-2 truncate">
-                  <span class="text-catppuccin-yellow">project</span>.<span class="text-catppuccin-sapphire">${project.title
-                    .toLowerCase()
-                    .replace(/\s+/g, "_")}</span>
-                </h3>
-                <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">${
-                  project.description
-                }</p>
-                
-                <div class="mb-4 flex flex-wrap gap-2">
-                  ${project.technologies
-                    .map(
-                      (tech) => `
-                    <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full">
-                      <span class="text-catppuccin-teal">${tech}</span>
-                    </span>
-                  `
-                    )
-                    .join("")}
-                </div>
-                
-                <div class="flex gap-4 mt-auto">
-                  ${
-                    project.links.demo
-                      ? `
-                    <a href="${project.links.demo}" target="_blank" rel="noopener noreferrer" class="text-catppuccin-blue hover:text-catppuccin-sapphire">
-                      <span class="font-mono">live()</span>
-                    </a>
-                  `
-                      : ""
-                  }
-                  ${
-                    project.links.repository
-                      ? `
-                    <a href="${project.links.repository}" target="_blank" rel="noopener noreferrer" class="text-catppuccin-blue hover:text-catppuccin-sapphire">
-                      <span class="font-mono">code()</span>
-                    </a>
-                  `
-                      : ""
-                  }
-                  ${
-                    project.links.company
-                      ? `
-                    <a href="${project.links.company}" target="_blank" rel="noopener noreferrer" class="text-catppuccin-blue hover:text-catppuccin-sapphire">
-                      <span class="font-mono">open()</span>
-                    </a>
-                  `
-                      : ""
-                  }
+          // If there's no link, just return a normal card
+          if (!primaryLink) {
+            return `
+              <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col">
+                ${imageSection}
+                <div class="p-4 flex flex-col flex-grow">
+                  <h3 class="text-xl font-bold mb-2 truncate">
+                    <span class="text-catppuccin-yellow">project</span>.<span class="text-catppuccin-sapphire">${project.title
+                      .toLowerCase()
+                      .replace(/\s+/g, "_")}</span>
+                  </h3>
+                  <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">${
+                    project.description
+                  }</p>
+                  
+                  <div class="mt-auto flex flex-wrap gap-2">
+                    ${project.technologies
+                      .map(
+                        (tech) => `
+                      <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full">
+                        <span class="text-catppuccin-teal">${tech}</span>
+                      </span>
+                    `
+                      )
+                      .join("")}
+                  </div>
                 </div>
               </div>
-            </div>
+            `;
+          }
+
+          // If there is a link, make the whole card clickable
+          return `
+            <a href="${primaryLink}" target="_blank" rel="noopener noreferrer" class="block group">
+              <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full">
+                ${imageSection}
+                <div class="p-4 flex flex-col flex-grow">
+                  <h3 class="text-xl font-bold mb-2 truncate">
+                    <span class="text-catppuccin-yellow">project</span>.<span class="text-catppuccin-sapphire">${project.title
+                      .toLowerCase()
+                      .replace(/\s+/g, "_")}</span>
+                  </h3>
+                  <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">${
+                    project.description
+                  }</p>
+                  
+                  <div class="mt-auto flex flex-wrap gap-2">
+                    ${project.technologies
+                      .map(
+                        (tech) => `
+                      <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full">
+                        <span class="text-catppuccin-teal">${tech}</span>
+                      </span>
+                    `
+                      )
+                      .join("")}
+                  </div>
+                  
+                  <div class="mt-3 text-catppuccin-blue group-hover:text-catppuccin-sapphire">
+                    <span class="font-mono">view project →</span>
+                  </div>
+                </div>
+              </div>
+            </a>
           `;
         }
 
@@ -500,111 +517,107 @@
           <span class="text-catppuccin-pink">[]</span>;
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div
-            class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col"
+          <a
+            href="https://www.freecodecamp.org/news/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block group"
           >
-            <div class="h-72 p-4 bg-catppuccin-surface1">
-              <img
-                src="images/projects/fcc.png"
-                alt="freeCodeCamp Contributions"
-                class="w-full h-full object-contain"
-              />
-            </div>
-            <div class="p-4 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold mb-2 truncate">
-                <span class="text-catppuccin-yellow">contribution</span>.<span
-                  class="text-catppuccin-sapphire"
-                  >freecodecamp</span
-                >
-              </h3>
-              <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">
-                Created React content about state and using hooks. The number 1
-                ranked GitHub project in the world with 413k stars and over 350k
-                views per month.
-              </p>
-              <div class="mb-4 flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                >
-                  <span class="text-catppuccin-teal">React</span>
-                </span>
-                <span
-                  class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                >
-                  <span class="text-catppuccin-teal">Technical Writing</span>
-                </span>
+            <div
+              class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full"
+            >
+              <div class="h-72 p-4 bg-catppuccin-surface1">
+                <img
+                  src="images/projects/fcc.png"
+                  alt="freeCodeCamp Contributions"
+                  class="w-full h-full object-contain"
+                />
               </div>
-              <div class="flex gap-4 mt-auto">
-                <a
-                  href="https://www.freecodecamp.org/news/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-catppuccin-blue hover:text-catppuccin-sapphire"
+              <div class="p-4 flex flex-col flex-grow">
+                <h3 class="text-xl font-bold mb-2 truncate">
+                  <span class="text-catppuccin-yellow">contribution</span>.<span
+                    class="text-catppuccin-sapphire"
+                    >freecodecamp</span
+                  >
+                </h3>
+                <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">
+                  Created React content about state and using hooks. The number
+                  1 ranked GitHub project in the world with 413k stars and over
+                  350k views per month.
+                </p>
+                <div class="mb-4 flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
+                  >
+                    <span class="text-catppuccin-teal">React</span>
+                  </span>
+                  <span
+                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
+                  >
+                    <span class="text-catppuccin-teal">Technical Writing</span>
+                  </span>
+                </div>
+                <div
+                  class="mt-auto text-catppuccin-blue group-hover:text-catppuccin-sapphire"
                 >
-                  <span class="font-mono">read()</span>
-                </a>
-                <a
-                  href="https://github.com/freeCodeCamp/freeCodeCamp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-catppuccin-blue hover:text-catppuccin-sapphire"
-                >
-                  <span class="font-mono">code()</span>
-                </a>
+                  <span class="font-mono">view article →</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col"
+          </a>
+          <a
+            href="https://exercism.org/profiles/mab"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block group"
           >
-            <div class="h-72 p-4 bg-catppuccin-surface1">
-              <img
-                src="images/projects/exercism.png"
-                alt="JavaScript Algorithms Mentor"
-                class="w-full h-full object-contain"
-              />
-            </div>
-            <div class="p-4 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold mb-2 truncate">
-                <span class="text-catppuccin-yellow">contribution</span>.<span
-                  class="text-catppuccin-sapphire"
-                  >exercism_mentor</span
-                >
-              </h3>
-              <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">
-                Successfully mentored over 100 students in JavaScript algorithms
-                on the Exercism.org platform, offering iterative guidance and
-                achieving a 100% satisfaction rating.
-              </p>
-              <div class="mb-4 flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                >
-                  <span class="text-catppuccin-teal">JavaScript</span>
-                </span>
-                <span
-                  class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                >
-                  <span class="text-catppuccin-teal">Teaching</span>
-                </span>
-                <span
-                  class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                >
-                  <span class="text-catppuccin-teal">Algorithms</span>
-                </span>
+            <div
+              class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full"
+            >
+              <div class="h-72 p-4 bg-catppuccin-surface1">
+                <img
+                  src="images/projects/exercism.png"
+                  alt="JavaScript Algorithms Mentor"
+                  class="w-full h-full object-contain"
+                />
               </div>
-              <div class="flex gap-4 mt-auto">
-                <a
-                  href="https://exercism.org/profiles/mab"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-catppuccin-blue hover:text-catppuccin-sapphire"
+              <div class="p-4 flex flex-col flex-grow">
+                <h3 class="text-xl font-bold mb-2 truncate">
+                  <span class="text-catppuccin-yellow">contribution</span>.<span
+                    class="text-catppuccin-sapphire"
+                    >exercism_mentor</span
+                  >
+                </h3>
+                <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">
+                  Successfully mentored over 100 students in JavaScript
+                  algorithms on the Exercism.org platform, offering iterative
+                  guidance and achieving a 100% satisfaction rating.
+                </p>
+                <div class="mb-4 flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
+                  >
+                    <span class="text-catppuccin-teal">JavaScript</span>
+                  </span>
+                  <span
+                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
+                  >
+                    <span class="text-catppuccin-teal">Teaching</span>
+                  </span>
+                  <span
+                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
+                  >
+                    <span class="text-catppuccin-teal">Algorithms</span>
+                  </span>
+                </div>
+                <div
+                  class="mt-auto text-catppuccin-blue group-hover:text-catppuccin-sapphire"
                 >
-                  <span class="font-mono">profile()</span>
-                </a>
+                  <span class="font-mono">view profile →</span>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -631,7 +644,7 @@
               rel="noopener noreferrer"
               class="text-catppuccin-blue hover:text-catppuccin-sapphire"
             >
-              <span class="font-mono">viewSolutions()</span>
+              <span class="font-mono">view solutions →</span>
             </a>
           </div>
           <div
@@ -650,7 +663,7 @@
               rel="noopener noreferrer"
               class="text-catppuccin-blue hover:text-catppuccin-sapphire"
             >
-              <span class="font-mono">viewSolutions()</span>
+              <span class="font-mono">view solutions →</span>
             </a>
           </div>
           <div
@@ -669,7 +682,7 @@
               rel="noopener noreferrer"
               class="text-catppuccin-blue hover:text-catppuccin-sapphire"
             >
-              <span class="font-mono">viewSolutions()</span>
+              <span class="font-mono">view solutions →</span>
             </a>
           </div>
         </div>
@@ -813,7 +826,7 @@
             rel="noopener noreferrer"
             class="text-catppuccin-blue hover:text-catppuccin-sapphire"
           >
-            <span class="font-mono">linkedin()</span>
+            <span class="font-mono">linkedin →</span>
           </a>
           <a
             href="https://github.com/mitchellabrouwer"
@@ -821,7 +834,7 @@
             rel="noopener noreferrer"
             class="text-catppuccin-blue hover:text-catppuccin-sapphire"
           >
-            <span class="font-mono">github()</span>
+            <span class="font-mono">github →</span>
           </a>
         </div>
         <p class="text-catppuccin-subtext0">
