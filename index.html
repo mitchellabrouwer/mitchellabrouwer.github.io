@@ -111,37 +111,28 @@
                 "60%": { transform: "rotate(0.0deg)" },
                 "100%": { transform: "rotate(0.0deg)" },
               },
-              slideInFromBottom: {
-                "0%": { transform: "translateY(50px)", opacity: "0" },
-                "100%": { transform: "translateY(0)", opacity: "1" },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
               },
             },
             animation: {
-              "slide-in": "slideInFromBottom 0.6s ease-out forwards",
+              wave: "wave 2s ease-in-out infinite",
+              "fade-in": "fadeIn 0.8s ease-out forwards",
             },
           },
         },
       };
     </script>
     <style>
-      .section-hidden {
-        opacity: 0;
-        transform: translateY(50px);
+      section {
+        scroll-margin-top: 6rem; /* Increased offset for fixed navbar */
       }
 
-      .section-show {
-        animation: slideInFromBottom 0.6s ease-out forwards;
-      }
-
-      @keyframes slideInFromBottom {
-        0% {
-          transform: translateY(50px);
-          opacity: 0;
-        }
-        100% {
-          transform: translateY(0);
-          opacity: 1;
-        }
+      #contributing,
+      #algorithms,
+      #contact {
+        scroll-margin-top: 7rem; /* Even more offset for problematic sections */
       }
     </style>
   </head>
@@ -297,13 +288,13 @@
             <div class="space-y-4 text-catppuccin-subtext0">
               <p>
                 Hi there
-                <span
-                  class="inline-block animate-[wave_2s_ease-in-out_infinite] origin-[70%_70%] mr-2"
+                <span class="inline-block animate-wave origin-[70%_70%]"
                   >👋</span
-                >
-                ,
+                >, I'm Mitchell — a software engineer based in Australia with a
+                love for clean code and elegant solutions. I've spent years
+                honing my craft across various domains, from building production
+                apps and websites to diving into AI and algorithm challenges.
               </p>
-              <p>I'm Mitchell — a software engineer based in Australia.</p>
               <p>
                 I'm passionate about coding, blending new technologies with a
                 deep understanding of their foundations. Problem-solving drives
@@ -947,7 +938,7 @@
         // Apply initial hidden state
         sections.forEach((section) => {
           if (section.id !== "home") {
-            section.classList.add("section-hidden");
+            section.classList.add("opacity-0");
           }
         });
 
@@ -959,10 +950,12 @@
                 // Add small delay on mobile to ensure smoother animation
                 if (isMobile) {
                   setTimeout(() => {
-                    entry.target.classList.add("section-show");
+                    entry.target.classList.remove("opacity-0");
+                    entry.target.classList.add("animate-fade-in");
                   }, 100);
                 } else {
-                  entry.target.classList.add("section-show");
+                  entry.target.classList.remove("opacity-0");
+                  entry.target.classList.add("animate-fade-in");
                 }
                 observer.unobserve(entry.target);
               }
