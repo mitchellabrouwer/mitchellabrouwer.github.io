@@ -100,22 +100,65 @@
                 rosewater: "#f5e0dc",
               },
             },
+            keyframes: {
+              wave: {
+                "0%": { transform: "rotate(0.0deg)" },
+                "10%": { transform: "rotate(14.0deg)" },
+                "20%": { transform: "rotate(-8.0deg)" },
+                "30%": { transform: "rotate(14.0deg)" },
+                "40%": { transform: "rotate(-4.0deg)" },
+                "50%": { transform: "rotate(10.0deg)" },
+                "60%": { transform: "rotate(0.0deg)" },
+                "100%": { transform: "rotate(0.0deg)" },
+              },
+              slideInFromBottom: {
+                "0%": { transform: "translateY(50px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+            },
+            animation: {
+              "slide-in": "slideInFromBottom 0.6s ease-out forwards",
+            },
           },
         },
       };
     </script>
+    <style>
+      .section-hidden {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      .section-show {
+        animation: slideInFromBottom 0.6s ease-out forwards;
+      }
+
+      @keyframes slideInFromBottom {
+        0% {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body class="bg-catppuccin-base text-catppuccin-text min-h-screen">
     <header class="bg-catppuccin-mantle py-4 fixed w-full top-0 z-50">
       <div class="container mx-auto px-4 flex justify-between items-center">
-        <div class="text-xl font-bold">
+        <a
+          href="#"
+          class="text-xl font-bold hover:text-catppuccin-sapphire transition"
+        >
           <span class="text-catppuccin-mauve">const</span>
           <span class="text-catppuccin-blue">dev</span> =
           <span class="text-catppuccin-green">"Mitchell Brouwer"</span>;
-        </div>
+        </a>
 
         <!-- Mobile menu button -->
-        <button class="md:hidden" id="menuButton">
+        <button class="lg:hidden" id="menuButton">
           <svg
             class="w-6 h-6"
             fill="none"
@@ -134,8 +177,10 @@
         </button>
 
         <!-- Desktop navigation -->
-        <nav class="hidden md:flex space-x-6">
-          <a href="#" class="hover:text-catppuccin-sapphire transition">Home</a>
+        <nav class="hidden lg:flex space-x-6">
+          <a href="#about" class="hover:text-catppuccin-sapphire transition"
+            >About</a
+          >
           <a href="#work" class="hover:text-catppuccin-sapphire transition"
             >Work</a
           >
@@ -159,12 +204,12 @@
       </div>
 
       <!-- Mobile navigation -->
-      <nav id="mobileNav" class="hidden md:hidden bg-catppuccin-crust py-2">
+      <nav id="mobileNav" class="hidden lg:hidden bg-catppuccin-crust py-2">
         <div class="container mx-auto px-4 flex flex-col space-y-2">
           <a
-            href="#"
+            href="#about"
             class="block py-2 hover:text-catppuccin-sapphire transition"
-            >Home</a
+            >About</a
           >
           <a
             href="#work"
@@ -230,6 +275,51 @@
         <p class="text-xl text-catppuccin-subtext1">
           Building elegant solutions to complex problems
         </p>
+      </section>
+
+      <section id="about" class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-catppuccin-mauve">
+          <span class="text-catppuccin-mauve">const</span>
+          <span class="text-catppuccin-blue">aboutMe</span> =
+          <span class="text-catppuccin-pink">{}</span>;
+        </h2>
+        <div class="bg-catppuccin-surface0 rounded-lg p-8 shadow-lg">
+          <div
+            class="flex flex-col sm:flex-row gap-6 items-center sm:items-start"
+          >
+            <div class="flex-shrink-0 mb-2 sm:mb-0">
+              <img
+                src="images/profile/profile-photo.jpeg"
+                alt="Mitchell Brouwer"
+                class="rounded-full w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-cover border-2 border-catppuccin-surface2 shadow-md"
+              />
+            </div>
+            <div class="space-y-4 text-catppuccin-subtext0">
+              <p>
+                Hi there
+                <span
+                  class="inline-block animate-[wave_2s_ease-in-out_infinite] origin-[70%_70%] mr-2"
+                  >👋</span
+                >
+                ,
+              </p>
+              <p>I'm Mitchell — a software engineer based in Australia.</p>
+              <p>
+                I'm passionate about coding, blending new technologies with a
+                deep understanding of their foundations. Problem-solving drives
+                me—I thrive on tackling complex challenges and crafting
+                efficient, maintainable solutions.
+              </p>
+              <p>
+                Beyond development, my experience in marketing, project
+                management, and research helps me bridge technical and business
+                needs. I thrive in fast-paced environments, adapting quickly to
+                new frameworks, optimizing systems, and architecting solutions
+                with precision and enthusiasm.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="work" class="mb-16">
@@ -842,5 +932,56 @@
         </p>
       </div>
     </footer>
+
+    <script>
+      // Animation on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section");
+
+        // Detect if device is likely mobile
+        const isMobile =
+          window.innerWidth < 768 ||
+          navigator.userAgent.match(/Android/i) ||
+          navigator.userAgent.match(/iPhone|iPad|iPod/i);
+
+        // Apply initial hidden state
+        sections.forEach((section) => {
+          if (section.id !== "home") {
+            section.classList.add("section-hidden");
+          }
+        });
+
+        // Create intersection observer
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Add small delay on mobile to ensure smoother animation
+                if (isMobile) {
+                  setTimeout(() => {
+                    entry.target.classList.add("section-show");
+                  }, 100);
+                } else {
+                  entry.target.classList.add("section-show");
+                }
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            root: null,
+            threshold: isMobile ? 0.01 : 0.1, // Lower threshold for mobile
+            rootMargin: isMobile ? "0px" : "-100px", // Different margin for mobile
+          }
+        );
+
+        // Observe all sections except home
+        sections.forEach((section) => {
+          if (section.id !== "home") {
+            observer.observe(section);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
