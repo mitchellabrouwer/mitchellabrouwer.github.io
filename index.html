@@ -289,7 +289,7 @@
               <p>
                 Hi there
                 <span class="inline-block animate-wave origin-[70%_70%]"
-                  >👋</span
+                  >👋🏻</span
                 >, I'm Mitchell, a software engineer based in Australia with a
                 passion for technology, programming, and learning.
               </p>
@@ -306,59 +306,6 @@
                 business goals.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" class="mb-16">
-        <h2 class="text-3xl font-bold mb-8 text-catppuccin-mauve">
-          <span class="text-catppuccin-mauve">const</span>
-          <span class="text-catppuccin-blue">work</span> =
-          <span class="text-catppuccin-pink">[]</span>;
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div
-            class="bg-catppuccin-surface0 rounded-lg p-6 shadow-lg hover:bg-catppuccin-surface1 transition"
-          >
-            <h3 class="text-xl font-bold mb-2">
-              <span class="text-catppuccin-yellow">company</span>.<span
-                class="text-catppuccin-sapphire"
-                >jobsearch_works</span
-              >
-            </h3>
-            <p class="text-catppuccin-subtext0 mb-4">
-              Building the next generation SaaS that helps people find and apply
-              for jobs easier using AI.
-            </p>
-            <a
-              href="https://www.linkedin.com/company/job-search-works/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-catppuccin-blue hover:text-catppuccin-sapphire"
-            >
-              <span class="font-mono">view company →</span>
-            </a>
-          </div>
-          <div
-            class="bg-catppuccin-surface0 rounded-lg p-6 shadow-lg hover:bg-catppuccin-surface1 transition"
-          >
-            <h3 class="text-xl font-bold mb-2">
-              <span class="text-catppuccin-yellow">company</span>.<span
-                class="text-catppuccin-sapphire"
-                >dataannotation_tech</span
-              >
-            </h3>
-            <p class="text-catppuccin-subtext0 mb-4">
-              Training AI models through data annotation and coding tasks.
-            </p>
-            <a
-              href="https://www.dataannotation.tech/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-catppuccin-blue hover:text-catppuccin-sapphire"
-            >
-              <span class="font-mono">view company →</span>
-            </a>
           </div>
         </div>
       </section>
@@ -380,6 +327,21 @@
 
       <script>
         const projects = [
+          {
+            title: "JobSearch Works",
+            description:
+              "Building the next generation SaaS that helps people find and apply for jobs easier using AI.",
+            type: "mockups",
+            images: [
+              "images/projects/job-search-works/jsw-1-portrait.png",
+              "images/projects/job-search-works/jsw-2-portrait.png",
+              "images/projects/job-search-works/jsw-3-portrait.png",
+            ],
+            technologies: ["Next.js", "TypeScript", "AI", "SaaS"],
+            links: {
+              demo: "https://jobsearch.works/",
+            },
+          },
           {
             title: "Catch Casey",
             description:
@@ -594,7 +556,60 @@
           <span class="text-catppuccin-blue">contributing</span> =
           <span class="text-catppuccin-pink">[]</span>;
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a
+            href="https://www.dataannotation.tech/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block group"
+          >
+            <div
+              class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full"
+            >
+              <div class="h-72 p-4 bg-catppuccin-surface1">
+                <img
+                  src="images/projects/data-annotation.png"
+                  alt="Data Annotation Tech"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="p-4 flex flex-col flex-grow">
+                <h3 class="text-xl font-bold mb-2 truncate">
+                  <span class="text-catppuccin-yellow">contribution</span>.<span
+                    class="text-catppuccin-sapphire"
+                    >data_annotation</span
+                  >
+                </h3>
+                <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">
+                  Training AI models through data annotation and coding tasks,
+                  contributing to the advancement of machine learning
+                  applications.
+                </p>
+                <div class="mb-4 flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
+                  >
+                    <span class="text-catppuccin-teal">AI</span>
+                  </span>
+                  <span
+                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
+                  >
+                    <span class="text-catppuccin-teal">Data Annotation</span>
+                  </span>
+                  <span
+                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
+                  >
+                    <span class="text-catppuccin-teal">Machine Learning</span>
+                  </span>
+                </div>
+                <div
+                  class="mt-auto text-catppuccin-blue group-hover:text-catppuccin-sapphire"
+                >
+                  <span class="font-mono">view company →</span>
+                </div>
+              </div>
+            </div>
+          </a>
           <a
             href="https://www.freecodecamp.org/news/"
             target="_blank"
