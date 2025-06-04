@@ -794,7 +794,7 @@
             <input
               type="hidden"
               name="_next"
-              value="https://mitchellbrouwer.dev/#contact"
+              value="https://mitchellbrouwer.dev/?submitted=true#contact"
             />
             <input type="hidden" name="_captcha" value="false" />
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -894,18 +894,22 @@
           </form>
 
           <script>
-            document
-              .querySelector("form")
-              .addEventListener("submit", function () {
-                const buttonText = document.getElementById("buttonText");
-                const loadingSpinner =
-                  document.getElementById("loadingSpinner");
-                const submitButton = document.getElementById("submitButton");
-
-                buttonText.textContent = "Sending...";
-                loadingSpinner.classList.remove("hidden");
-                submitButton.disabled = true;
-              });
+            document.addEventListener("DOMContentLoaded", function () {
+              const urlParams = new URLSearchParams(window.location.search);
+              if (urlParams.get("submitted") === "true") {
+                const successMessage =
+                  document.getElementById("successMessage");
+                successMessage.classList.remove("hidden");
+                // Hide the message after 5 seconds
+                setTimeout(() => {
+                  successMessage.classList.add("hidden");
+                  // Clean up the URL
+                  const newUrl =
+                    window.location.href.split("?")[0] + "#contact";
+                  window.history.replaceState({}, "", newUrl);
+                }, 5000);
+              }
+            });
           </script>
         </div>
       </section>
