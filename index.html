@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -72,32 +72,38 @@
           extend: {
             colors: {
               catppuccin: {
-                base: "#1e1e2e",
-                mantle: "#181825",
-                crust: "#11111b",
-                text: "#cdd6f4",
-                subtext0: "#a6adc8",
-                subtext1: "#bac2de",
-                surface0: "#313244",
-                surface1: "#45475a",
-                surface2: "#585b70",
-                overlay0: "#6c7086",
-                overlay1: "#7f849c",
-                overlay2: "#9399b2",
-                blue: "#89b4fa",
-                lavender: "#b4befe",
-                sapphire: "#74c7ec",
-                sky: "#89dceb",
-                teal: "#94e2d5",
-                green: "#a6e3a1",
-                yellow: "#f9e2af",
+                // Warm beige-based color scheme matching the logo
+                base: "#2a2520",
+                mantle: "#1f1c18",
+                crust: "#171410",
+                text: "#f0ede8",
+                subtext0: "#d4bba2",
+                subtext1: "#e2d3c2",
+                surface0: "#3d3830",
+                surface1: "#4a453c",
+                surface2: "#574f44",
+                overlay0: "#6b5f50",
+                overlay1: "#7d6e5c",
+                overlay2: "#8f7e68",
+                blue: "#8db4aa",
+                lavender: "#b4a6be",
+                sapphire: "#74b7c7",
+                sky: "#89c7db",
+                teal: "#94d2c5",
+                green: "#a6d3a1",
+                yellow: "#f9d2af",
                 peach: "#fab387",
-                maroon: "#eba0ac",
-                red: "#f38ba8",
-                mauve: "#cba6f7",
-                pink: "#f5c2e7",
-                flamingo: "#f2cdcd",
-                rosewater: "#f5e0dc",
+                maroon: "#eb90ac",
+                red: "#f37ba8",
+                mauve: "#cb96f7",
+                pink: "#f5b2e7",
+                flamingo: "#f2bdcd",
+                rosewater: "#f5d0dc",
+                // Primary beige colors from logo
+                beige: "#d4bba2",
+                cream: "#f9f6f3",
+                warm: "#c4a894",
+                accent: "#b4a088",
               },
             },
             keyframes: {
@@ -129,8 +135,6 @@
         scroll-margin-top: 6rem; /* Increased offset for fixed navbar */
       }
 
-      #contributing,
-      #algorithms,
       #contact {
         scroll-margin-top: 7rem; /* Even more offset for problematic sections */
       }
@@ -139,13 +143,16 @@
   <body class="bg-catppuccin-base text-catppuccin-text min-h-screen">
     <header class="bg-catppuccin-mantle py-4 fixed w-full top-0 z-50">
       <div class="container mx-auto px-4 flex justify-between items-center">
-        <a
-          href="#"
-          class="text-xl font-bold hover:text-catppuccin-sapphire transition"
-        >
-          <span class="text-catppuccin-mauve">const</span>
-          <span class="text-catppuccin-blue">dev</span> =
-          <span class="text-catppuccin-green">"Mitchell Brouwer"</span>;
+        <a href="#" class="flex items-center hover:opacity-80 transition">
+          <img
+            src="images/logo-beige.svg"
+            alt="Mitchell Brouwer Logo"
+            class="w-8 h-8 mr-3"
+          />
+          <span class="text-catppuccin-beige tracking-wider text-lg">
+            <span class="font-medium">BROUWER</span>
+            <span class="font-thin">DIGITAL</span>
+          </span>
         </a>
 
         <!-- Mobile menu button -->
@@ -175,16 +182,6 @@
           <a href="#projects" class="hover:text-catppuccin-sapphire transition"
             >Projects</a
           >
-          <a
-            href="#contributing"
-            class="hover:text-catppuccin-sapphire transition"
-            >Contributing</a
-          >
-          <a
-            href="#algorithms"
-            class="hover:text-catppuccin-sapphire transition"
-            >Algorithms</a
-          >
           <a href="#contact" class="hover:text-catppuccin-sapphire transition"
             >Contact</a
           >
@@ -203,16 +200,6 @@
             href="#projects"
             class="block py-2 hover:text-catppuccin-sapphire transition"
             >Projects</a
-          >
-          <a
-            href="#contributing"
-            class="block py-2 hover:text-catppuccin-sapphire transition"
-            >Contributing</a
-          >
-          <a
-            href="#algorithms"
-            class="block py-2 hover:text-catppuccin-sapphire transition"
-            >Algorithms</a
           >
           <a
             href="#contact"
@@ -240,7 +227,7 @@
         mobileNav.classList.toggle("hidden");
         menuIcon.setAttribute(
           "d",
-          isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"
+          isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16",
         );
       });
 
@@ -251,76 +238,432 @@
     </script>
 
     <main class="container mx-auto px-4 py-8 mt-16">
-      <section id="home" class="text-center mb-16">
-        <h2 class="text-4xl font-bold mb-4 text-catppuccin-blue">
-          Software Engineer
-        </h2>
-        <p class="text-xl text-catppuccin-subtext1">
-          Building elegant solutions to complex problems
+      <section
+        id="home"
+        class="min-h-[80vh] flex flex-col justify-center items-center text-center mb-24"
+      >
+        <p
+          class="text-lg md:text-xl text-catppuccin-subtext0 font-light mb-6 tracking-wide"
+        >
+          Welcome to
         </p>
+        <h1
+          class="text-5xl md:text-6xl font-extralight mb-4 text-catppuccin-beige tracking-tight leading-tight"
+        >
+          Brouwer Digital
+        </h1>
+        <div class="max-w-3xl mx-auto mt-8">
+          <p
+            class="text-xl md:text-2xl text-catppuccin-subtext1 font-light leading-relaxed mb-6"
+          >
+            We build full-stack digital products powered by AI to increase speed
+            and efficiency
+          </p>
+          <p class="text-lg text-catppuccin-subtext0 font-light">
+            React • TypeScript • React Native • AI Integration • Firebase
+          </p>
+        </div>
       </section>
 
-      <section id="about" class="mb-16">
-        <h2 class="text-3xl font-bold mb-8 text-catppuccin-mauve">
-          <span class="text-catppuccin-mauve">const</span>
-          <span class="text-catppuccin-blue">aboutMe</span> =
-          <span class="text-catppuccin-pink">{}</span>;
-        </h2>
-        <div class="bg-catppuccin-surface0 rounded-lg p-8 shadow-lg">
-          <div
-            class="flex flex-col sm:flex-row gap-6 items-center sm:items-start"
+      <!-- Core Competencies -->
+      <section id="competencies" class="mb-32">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl md:text-5xl font-extralight mb-8 text-catppuccin-beige tracking-tight"
           >
-            <div class="flex-shrink-0 mb-2 sm:mb-0">
+            What We Do
+          </h2>
+          <p
+            class="text-xl text-catppuccin-subtext1 font-light max-w-3xl mx-auto"
+          >
+            We specialize in full-stack digital products, leveraging AI where it
+            increases speed and efficiency
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-catppuccin-beige"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-medium mb-3 text-catppuccin-beige">
+              Full-Stack Development
+            </h3>
+            <p class="text-catppuccin-subtext1">
+              React, TypeScript, React Native, Electron - from web to mobile to
+              desktop
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-catppuccin-beige"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-medium mb-3 text-catppuccin-beige">
+              AI Integration
+            </h3>
+            <p class="text-catppuccin-subtext1">
+              Python, machine learning integration, automation that actually
+              improves workflows
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-catppuccin-beige"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-medium mb-3 text-catppuccin-beige">
+              Business Tools
+            </h3>
+            <p class="text-catppuccin-subtext1">
+              Firebase, specialized Google Sheets integration, custom business
+              automation
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="mb-32">
+        <div class="grid md:grid-cols-12 gap-16 items-center">
+          <div class="md:col-span-5">
+            <div class="relative">
               <img
                 src="images/profile/profile-photo.jpeg"
-                alt="Mitchell Brouwer"
-                class="rounded-full w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-cover border-2 border-catppuccin-surface2 shadow-md"
+                alt="Mitchell Brouwer, Founder"
+                class="w-full max-w-sm mx-auto rounded-2xl object-cover shadow-2xl"
               />
             </div>
-            <div class="space-y-4 text-catppuccin-subtext0">
+          </div>
+          <div class="md:col-span-7">
+            <h2
+              class="text-3xl md:text-4xl font-extralight mb-6 text-catppuccin-beige tracking-tight"
+            >
+              Meet Our Founder
+            </h2>
+            <div
+              class="space-y-6 text-lg text-catppuccin-subtext1 leading-relaxed"
+            >
               <p>
-                Hi there
-                <span class="inline-block animate-wave origin-[70%_70%]"
-                  >👋🏻</span
-                >, I'm Mitchell, a software engineer based in Australia with a
-                passion for technology, programming, and learning.
+                Mitchell Brouwer founded Brouwer Digital with a focus on
+                building digital products that solve real problems. Based in
+                Australia, we work with clients to create custom applications
+                while also developing our own innovative products.
               </p>
               <p>
-                I thrive in high-paced environments, driven by a relentless
-                curiosity and a love for solving complex challenges. By blending
-                cutting-edge technologies with a strong grasp of foundational
-                principles, I develop efficient, scalable, and maintainable
-                solutions.
+                We combine technical expertise with business understanding,
+                delivering full-stack solutions from web applications to mobile
+                apps. Our approach emphasizes AI integration where it genuinely
+                improves efficiency, not just for the sake of using AI.
               </p>
               <p>
-                Beyond development, my experience in marketing, project
-                management, and research helps me align technical solutions with
-                business goals.
+                Whether building custom solutions for clients or creating our
+                own products like educational AR games, we focus on delivering
+                real value through thoughtful technology choices and clean
+                implementation.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="projects" class="mb-16">
-        <h2 class="text-3xl font-bold mb-8 text-catppuccin-mauve">
-          <span class="text-catppuccin-mauve">const</span>
-          <span class="text-catppuccin-blue">projects</span> =
-          <span class="text-catppuccin-pink">[]</span>;
-        </h2>
+      <!-- Client Work -->
+      <section id="projects" class="mb-32">
+        <div class="text-center mb-20">
+          <h2
+            class="text-4xl md:text-5xl font-extralight mb-8 text-catppuccin-beige tracking-tight"
+          >
+            Featured Client Work
+          </h2>
+        </div>
+
+        <!-- Job Search Works -->
+        <div class="mb-20">
+          <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7 order-1">
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4 h-80">
+                <img
+                  src="images/projects/job-search-works/jsw-1-portrait.png"
+                  alt="Job Search Works - Profile Setup"
+                  class="w-full h-full object-contain rounded-lg shadow-lg"
+                />
+                <img
+                  src="images/projects/job-search-works/jsw-2-portrait.png"
+                  alt="Job Search Works - AI Applications"
+                  class="w-full h-full object-contain rounded-lg shadow-lg"
+                />
+                <img
+                  src="images/projects/job-search-works/jsw-3-portrait.png"
+                  alt="Job Search Works - Progress Tracking"
+                  class="w-full h-full object-contain rounded-lg shadow-lg hidden md:block"
+                />
+              </div>
+            </div>
+            <div class="md:col-span-5 order-2">
+              <span
+                class="text-sm font-medium text-catppuccin-warm bg-catppuccin-surface1 px-3 py-1 rounded-full"
+                >CLIENT PROJECT</span
+              >
+              <h3
+                class="text-3xl md:text-4xl font-extralight mb-4 mt-4 text-catppuccin-beige"
+              >
+                Job Search Works
+              </h3>
+              <p class="text-lg text-catppuccin-subtext1 mb-6 leading-relaxed">
+                AI-powered job application automation platform that finds jobs,
+                tailors resumes, and applies at scale. A full-stack web
+                application with AI integrations for resume tailoring and job
+                matching.
+              </p>
+              <div class="space-y-4 mb-8">
+                <div class="flex items-center text-catppuccin-subtext0">
+                  <span
+                    class="w-2 h-2 bg-catppuccin-beige rounded-full mr-3"
+                  ></span>
+                  Full-stack web application (React, TypeScript, Python)
+                </div>
+                <div class="flex items-center text-catppuccin-subtext0">
+                  <span
+                    class="w-2 h-2 bg-catppuccin-beige rounded-full mr-3"
+                  ></span>
+                  AI integration for resume and cover letter generation
+                </div>
+                <div class="flex items-center text-catppuccin-subtext0">
+                  <span
+                    class="w-2 h-2 bg-catppuccin-beige rounded-full mr-3"
+                  ></span>
+                  Real-time dashboard with job application tracking
+                </div>
+              </div>
+              <a
+                href="https://jobsearch.works/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 hover:bg-catppuccin-surface2 text-catppuccin-text rounded-lg transition"
+              >
+                Visit Live Site →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Eatgav.com -->
+        <div class="mb-20">
+          <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-5 order-2 md:order-1">
+              <span
+                class="text-sm font-medium text-catppuccin-warm bg-catppuccin-surface1 px-3 py-1 rounded-full"
+                >CLIENT PROJECT</span
+              >
+              <h3
+                class="text-3xl md:text-4xl font-extralight mb-4 mt-4 text-catppuccin-beige"
+              >
+                Eatgav.com
+              </h3>
+              <p class="text-lg text-catppuccin-subtext1 mb-6 leading-relaxed">
+                A specialized web application for vegan recipes with secure user
+                authentication, advanced filtering, and intuitive search
+                capabilities. A Next.js application with full-stack
+                functionality.
+              </p>
+              <div class="space-y-4 mb-8">
+                <div class="flex items-center text-catppuccin-subtext0">
+                  <span
+                    class="w-2 h-2 bg-catppuccin-beige rounded-full mr-3"
+                  ></span>
+                  Next.js web application with Supabase backend
+                </div>
+                <div class="flex items-center text-catppuccin-subtext0">
+                  <span
+                    class="w-2 h-2 bg-catppuccin-beige rounded-full mr-3"
+                  ></span>
+                  User authentication and subscription system (Stripe)
+                </div>
+                <div class="flex items-center text-catppuccin-subtext0">
+                  <span
+                    class="w-2 h-2 bg-catppuccin-beige rounded-full mr-3"
+                  ></span>
+                  Advanced recipe search and filtering system
+                </div>
+              </div>
+              <a
+                href="https://eatgav.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 hover:bg-catppuccin-surface2 text-catppuccin-text rounded-lg transition"
+              >
+                Visit Live Site →
+              </a>
+            </div>
+            <div class="md:col-span-7 order-1 md:order-2">
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4 h-80">
+                <img
+                  src="images/projects/eat-gav/eatgav-1.png"
+                  alt="Eatgav - Recipe Search"
+                  class="w-full h-full object-contain rounded-lg shadow-lg"
+                />
+                <img
+                  src="images/projects/eat-gav/eatgav-2.png"
+                  alt="Eatgav - Recipe Details"
+                  class="w-full h-full object-contain rounded-lg shadow-lg"
+                />
+                <img
+                  src="images/projects/eat-gav/eatgav-3.png"
+                  alt="Eatgav - User Dashboard"
+                  class="w-full h-full object-contain rounded-lg shadow-lg hidden md:block"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Products -->
+      <section id="products" class="mb-32">
+        <div class="text-center mb-20">
+          <h2
+            class="text-4xl md:text-5xl font-extralight mb-8 text-catppuccin-beige tracking-tight"
+          >
+            Our Products
+          </h2>
+          <p
+            class="text-xl text-catppuccin-subtext1 font-light max-w-3xl mx-auto"
+          >
+            Products we've built and launched ourselves
+          </p>
+        </div>
+
+        <!-- Catch Casey -->
+        <div class="mb-20">
+          <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-5">
+              <span
+                class="text-sm font-medium text-catppuccin-blue bg-catppuccin-surface1 px-3 py-1 rounded-full"
+                >OUR PRODUCT</span
+              >
+              <h3
+                class="text-3xl md:text-4xl font-extralight mb-4 mt-4 text-catppuccin-beige"
+              >
+                Catch Casey
+              </h3>
+              <p class="text-lg text-catppuccin-subtext1 mb-6 leading-relaxed">
+                An innovative AR detective game that gets kids outside while
+                learning. A React Native mobile app that combines education with
+                outdoor exploration through location-based gameplay.
+              </p>
+              <div class="space-y-4 mb-8">
+                <div class="flex items-center text-catppuccin-subtext0">
+                  <span
+                    class="w-2 h-2 bg-catppuccin-beige rounded-full mr-3"
+                  ></span>
+                  React Native app with AR integration
+                </div>
+                <div class="flex items-center text-catppuccin-subtext0">
+                  <span
+                    class="w-2 h-2 bg-catppuccin-beige rounded-full mr-3"
+                  ></span>
+                  Location-based gameplay and educational content
+                </div>
+                <div class="flex items-center text-catppuccin-subtext0">
+                  <span
+                    class="w-2 h-2 bg-catppuccin-beige rounded-full mr-3"
+                  ></span>
+                  Family-friendly with privacy-first approach
+                </div>
+              </div>
+              <a
+                href="https://apps.apple.com/us/app/catch-casey/id6742388969?uo=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 hover:bg-catppuccin-surface2 text-catppuccin-text rounded-lg transition"
+              >
+                Download on App Store →
+              </a>
+            </div>
+            <div class="md:col-span-7">
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4 h-80">
+                <img
+                  src="images/projects/catch-casey/catchcasey-1.png"
+                  alt="Catch Casey - AR Gameplay"
+                  class="w-full h-full object-contain rounded-lg shadow-lg"
+                />
+                <img
+                  src="images/projects/catch-casey/catchcasey-2.png"
+                  alt="Catch Casey - Detective Dashboard"
+                  class="w-full h-full object-contain rounded-lg shadow-lg"
+                />
+                <img
+                  src="images/projects/catch-casey/catchcasey-3.png"
+                  alt="Catch Casey - Learning Progress"
+                  class="w-full h-full object-contain rounded-lg shadow-lg hidden md:block"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Additional Work -->
+      <section id="additional-work" class="mb-32">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl md:text-4xl font-extralight text-catppuccin-beige tracking-tight"
+          >
+            Additional Work
+          </h2>
+        </div>
 
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          id="projectsGrid"
+          class="grid grid-cols-1 md:grid-cols-2 gap-8"
+          id="otherProjectsGrid"
         >
-          <!-- Project cards will be inserted here by JavaScript -->
+          <!-- Other project cards will be inserted here by JavaScript -->
         </div>
       </section>
 
       <script>
         const projects = [
           {
-            title: "JobSearch Works",
+            title: "Job Search Works",
             description:
               "Building the next generation SaaS that helps people find and apply for jobs easier using AI.",
             type: "mockups",
@@ -472,8 +815,8 @@
               <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col">
                 ${imageSection}
                 <div class="p-4 flex flex-col flex-grow">
-                  <h3 class="text-xl font-bold mb-2 truncate">
-                    <span class="text-catppuccin-yellow">project</span>.<span class="text-catppuccin-sapphire">${project.title
+                  <h3 class="text-xl font-medium mb-2 truncate">
+                    <span class="text-catppuccin-beige">client</span>.<span class="text-catppuccin-blue">${project.title
                       .toLowerCase()
                       .replace(/\s+/g, "_")}</span>
                   </h3>
@@ -488,7 +831,7 @@
                       <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full">
                         <span class="text-catppuccin-teal">${tech}</span>
                       </span>
-                    `
+                    `,
                       )
                       .join("")}
                   </div>
@@ -503,8 +846,8 @@
               <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full">
                 ${imageSection}
                 <div class="p-4 flex flex-col flex-grow">
-                  <h3 class="text-xl font-bold mb-2 truncate">
-                    <span class="text-catppuccin-yellow">project</span>.<span class="text-catppuccin-sapphire">${project.title
+                  <h3 class="text-xl font-medium mb-2 truncate">
+                    <span class="text-catppuccin-beige">client</span>.<span class="text-catppuccin-blue">${project.title
                       .toLowerCase()
                       .replace(/\s+/g, "_")}</span>
                   </h3>
@@ -519,7 +862,7 @@
                       <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full">
                         <span class="text-catppuccin-teal">${tech}</span>
                       </span>
-                    `
+                    `,
                       )
                       .join("")}
                   </div>
@@ -533,251 +876,23 @@
           `;
         }
 
-        // Initial render
-        document.getElementById("projectsGrid").innerHTML = projects
+        // Render other projects (excluding featured projects)
+        document.getElementById("otherProjectsGrid").innerHTML = projects
           .filter(
             (project) =>
+              project.title !== "Job Search Works" &&
+              project.title !== "Catch Casey" &&
+              project.title !== "Eatgav.com" &&
               project.title !== "freeCodeCamp Contributions" &&
-              project.title !== "JavaScript Algorithms Mentor"
+              project.title !== "JavaScript Algorithms Mentor",
           )
           .map(createProjectCard)
           .join("");
       </script>
 
-      <section id="contributing" class="mb-16">
-        <h2 class="text-3xl font-bold mb-8 text-catppuccin-mauve">
-          <span class="text-catppuccin-mauve">const</span>
-          <span class="text-catppuccin-blue">contributing</span> =
-          <span class="text-catppuccin-pink">[]</span>;
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a
-            href="https://www.dataannotation.tech/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block group"
-          >
-            <div
-              class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full"
-            >
-              <div class="h-72 p-4 bg-catppuccin-surface1">
-                <img
-                  src="images/projects/dataannotationtech.jpeg"
-                  alt="Data Annotation Tech"
-                  class="w-full h-full object-contain"
-                />
-              </div>
-              <div class="p-4 flex flex-col flex-grow">
-                <h3 class="text-xl font-bold mb-2 truncate">
-                  <span class="text-catppuccin-yellow">contribution</span>.<span
-                    class="text-catppuccin-sapphire"
-                    >data_annotation</span
-                  >
-                </h3>
-                <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">
-                  Training AI models through data annotation and coding tasks,
-                  contributing to the advancement of machine learning
-                  applications.
-                </p>
-                <div class="mb-4 flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                  >
-                    <span class="text-catppuccin-teal">AI</span>
-                  </span>
-                  <span
-                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                  >
-                    <span class="text-catppuccin-teal">Data Annotation</span>
-                  </span>
-                  <span
-                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                  >
-                    <span class="text-catppuccin-teal">Machine Learning</span>
-                  </span>
-                </div>
-                <div
-                  class="mt-auto text-catppuccin-blue group-hover:text-catppuccin-sapphire"
-                >
-                  <span class="font-mono">view company →</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a
-            href="https://www.freecodecamp.org/news/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block group"
-          >
-            <div
-              class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full"
-            >
-              <div class="h-72 p-4 bg-catppuccin-surface1">
-                <img
-                  src="images/projects/fcc.png"
-                  alt="freeCodeCamp Contributions"
-                  class="w-full h-full object-contain"
-                />
-              </div>
-              <div class="p-4 flex flex-col flex-grow">
-                <h3 class="text-xl font-bold mb-2 truncate">
-                  <span class="text-catppuccin-yellow">contribution</span>.<span
-                    class="text-catppuccin-sapphire"
-                    >freecodecamp</span
-                  >
-                </h3>
-                <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">
-                  Created React content about state and using hooks. The number
-                  1 ranked GitHub project in the world with 413k stars and over
-                  350k views per month.
-                </p>
-                <div class="mb-4 flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                  >
-                    <span class="text-catppuccin-teal">React</span>
-                  </span>
-                  <span
-                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                  >
-                    <span class="text-catppuccin-teal">Technical Writing</span>
-                  </span>
-                </div>
-                <div
-                  class="mt-auto text-catppuccin-blue group-hover:text-catppuccin-sapphire"
-                >
-                  <span class="font-mono">view article →</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a
-            href="https://exercism.org/profiles/mab"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block group"
-          >
-            <div
-              class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full"
-            >
-              <div class="h-72 p-4 bg-catppuccin-surface1">
-                <img
-                  src="images/projects/exercism.png"
-                  alt="JavaScript Algorithms Mentor"
-                  class="w-full h-full object-contain"
-                />
-              </div>
-              <div class="p-4 flex flex-col flex-grow">
-                <h3 class="text-xl font-bold mb-2 truncate">
-                  <span class="text-catppuccin-yellow">contribution</span>.<span
-                    class="text-catppuccin-sapphire"
-                    >exercism_mentor</span
-                  >
-                </h3>
-                <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">
-                  Successfully mentored over 100 students in JavaScript
-                  algorithms on the Exercism.org platform, offering iterative
-                  guidance and achieving a 100% satisfaction rating.
-                </p>
-                <div class="mb-4 flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                  >
-                    <span class="text-catppuccin-teal">JavaScript</span>
-                  </span>
-                  <span
-                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                  >
-                    <span class="text-catppuccin-teal">Teaching</span>
-                  </span>
-                  <span
-                    class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"
-                  >
-                    <span class="text-catppuccin-teal">Algorithms</span>
-                  </span>
-                </div>
-                <div
-                  class="mt-auto text-catppuccin-blue group-hover:text-catppuccin-sapphire"
-                >
-                  <span class="font-mono">view profile →</span>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <section id="algorithms" class="mb-16">
-        <h2 class="text-3xl font-bold mb-8 text-catppuccin-mauve">
-          <span class="text-catppuccin-mauve">const</span>
-          <span class="text-catppuccin-blue">algorithms</span> =
-          <span class="text-catppuccin-pink">[]</span>;
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div
-            class="bg-catppuccin-surface0 rounded-lg p-6 shadow-lg hover:bg-catppuccin-surface1 transition"
-          >
-            <h3 class="text-xl font-bold mb-2">
-              <span class="text-catppuccin-yellow">language</span>.<span
-                class="text-catppuccin-sapphire"
-                >javascript</span
-              >
-            </h3>
-            <p class="text-catppuccin-subtext0 mb-4">Solutions in JavaScript</p>
-            <a
-              href="https://exercism.org/profiles/mab/solutions?track_slug=javascript"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-catppuccin-blue hover:text-catppuccin-sapphire"
-            >
-              <span class="font-mono">view solutions →</span>
-            </a>
-          </div>
-          <div
-            class="bg-catppuccin-surface0 rounded-lg p-6 shadow-lg hover:bg-catppuccin-surface1 transition"
-          >
-            <h3 class="text-xl font-bold mb-2">
-              <span class="text-catppuccin-yellow">language</span>.<span
-                class="text-catppuccin-sapphire"
-                >typescript</span
-              >
-            </h3>
-            <p class="text-catppuccin-subtext0 mb-4">Solutions in TypeScript</p>
-            <a
-              href="https://exercism.org/profiles/mab/solutions?track_slug=typescript"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-catppuccin-blue hover:text-catppuccin-sapphire"
-            >
-              <span class="font-mono">view solutions →</span>
-            </a>
-          </div>
-          <div
-            class="bg-catppuccin-surface0 rounded-lg p-6 shadow-lg hover:bg-catppuccin-surface1 transition"
-          >
-            <h3 class="text-xl font-bold mb-2">
-              <span class="text-catppuccin-yellow">language</span>.<span
-                class="text-catppuccin-sapphire"
-                >python</span
-              >
-            </h3>
-            <p class="text-catppuccin-subtext0 mb-4">Solutions in Python</p>
-            <a
-              href="https://exercism.org/profiles/mab/solutions?track_slug=python"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-catppuccin-blue hover:text-catppuccin-sapphire"
-            >
-              <span class="font-mono">view solutions →</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
       <section id="contact" class="mb-16">
-        <h2 class="text-3xl font-bold mb-8 text-catppuccin-mauve">
-          Contact Me
+        <h2 class="text-3xl font-light mb-8 text-catppuccin-beige">
+          Contact Us
         </h2>
         <div class="bg-catppuccin-surface0 rounded-lg p-6 shadow-lg">
           <form
@@ -930,7 +1045,7 @@
           </a>
         </div>
         <p class="text-catppuccin-subtext0">
-          © 2025 Mitchell Brouwer. All rights reserved.
+          © 2025 Brouwer Digital. All rights reserved.
         </p>
       </div>
     </footer>
@@ -976,7 +1091,7 @@
             root: null,
             threshold: isMobile ? 0.01 : 0.1, // Lower threshold for mobile
             rootMargin: isMobile ? "0px" : "-100px", // Different margin for mobile
-          }
+          },
         );
 
         // Observe all sections except home
