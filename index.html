@@ -138,6 +138,25 @@
       #contact {
         scroll-margin-top: 7rem; /* Even more offset for problematic sections */
       }
+
+      /* Mobile input focus fix */
+      @media (max-width: 768px) {
+        input:focus,
+        textarea:focus {
+          transform: translateY(0);
+          position: relative;
+          z-index: 60;
+        }
+        
+        .contact-form-container {
+          padding-top: 2rem;
+        }
+        
+        /* Ensure form inputs have enough space from fixed header */
+        #contact .bg-catppuccin-surface0 {
+          margin-top: 4rem;
+        }
+      }
     </style>
   </head>
   <body class="bg-catppuccin-base text-catppuccin-text min-h-screen">
@@ -894,7 +913,7 @@
         <h2 class="text-3xl font-light mb-8 text-catppuccin-beige">
           Contact Us
         </h2>
-        <div class="bg-catppuccin-surface0 rounded-lg p-6 shadow-lg">
+        <div class="bg-catppuccin-surface0 rounded-lg p-6 shadow-lg contact-form-container">
           <div
             id="successMessage"
             class="hidden mb-6 p-4 bg-catppuccin-green/20 border border-catppuccin-green rounded-lg text-catppuccin-green"
@@ -1017,6 +1036,23 @@
                   const newUrl = window.location.href.split("?")[0];
                   window.history.replaceState({}, "", newUrl);
                 }, 5000);
+              }
+
+              // Mobile keyboard viewport fix
+              if (window.innerWidth <= 768) {
+                const inputs = document.querySelectorAll('#contact input, #contact textarea');
+                inputs.forEach(input => {
+                  input.addEventListener('focus', function() {
+                    // Small delay to let keyboard appear
+                    setTimeout(() => {
+                      this.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center',
+                        inline: 'nearest'
+                      });
+                    }, 300);
+                  });
+                });
               }
             });
           </script>
