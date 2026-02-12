@@ -14,4 +14,7 @@ Thumbs.db
 *.sublime-project
 
 # Dependencies
-node_modules/ 
+node_modules/
+IMAGE_CHANGES.md
+.agents/
+.claude/

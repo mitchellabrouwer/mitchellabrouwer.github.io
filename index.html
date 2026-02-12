@@ -3,9 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brouwer Digital - Building Software for Positive Change</title>
+    <title>Brouwer Digital | Custom Software Development Australia</title>
+    <meta name="description" content="Brouwer Digital builds custom software, mobile apps, and automation solutions in Australia. Collaborative development from concept to launch with direct developer access." />
+    <link rel="canonical" href="https://mitchellbrouwer.dev/" />
 
-    <!-- Favicons - Updated to use beige logo -->
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Brouwer Digital | Custom Software Development Australia" />
+    <meta property="og:description" content="Custom software, mobile apps, and automation solutions built through true partnership. Direct developer access from concept to launch." />
+    <meta property="og:url" content="https://mitchellbrouwer.dev/" />
+    <meta property="og:image" content="https://mitchellbrouwer.dev/images/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Brouwer Digital" />
+    <meta property="og:locale" content="en_AU" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Brouwer Digital | Custom Software Development Australia" />
+    <meta name="twitter:description" content="Custom software, mobile apps, and automation solutions built through true partnership." />
+    <meta name="twitter:image" content="https://mitchellbrouwer.dev/images/og-card.png" />
+
+    <!-- Favicons -->
     <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="images/favicon/favicon.svg" type="image/svg+xml" />
     <link
@@ -30,7 +49,6 @@
           extend: {
             colors: {
               catppuccin: {
-                // Warm beige-based color scheme matching the logo
                 base: "#2a2520",
                 mantle: "#1f1c18",
                 crust: "#171410",
@@ -57,7 +75,6 @@
                 pink: "#f5b2e7",
                 flamingo: "#f2bdcd",
                 rosewater: "#f5d0dc",
-                // Primary beige colors from logo
                 beige: "#d4bba2",
                 cream: "#f9f6f3",
                 warm: "#c4a894",
@@ -90,14 +107,13 @@
     </script>
     <style>
       section {
-        scroll-margin-top: 6rem; /* Increased offset for fixed navbar */
+        scroll-margin-top: 6rem;
       }
 
       #contact {
-        scroll-margin-top: 7rem; /* Even more offset for problematic sections */
+        scroll-margin-top: 7rem;
       }
 
-      /* Fade-in animation */
       .fade-in-section {
         opacity: 0;
         transform: translateY(20px);
@@ -111,7 +127,6 @@
         transform: translateY(0);
       }
 
-      /* Mobile input focus fix */
       @media (max-width: 768px) {
         input:focus,
         textarea:focus {
@@ -124,15 +139,53 @@
           padding-top: 2rem;
         }
 
-        /* Ensure form inputs have enough space from fixed header */
         #contact .bg-catppuccin-surface0 {
           margin-top: 4rem;
         }
       }
     </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Brouwer Digital",
+        "url": "https://mitchellbrouwer.dev",
+        "logo": "https://mitchellbrouwer.dev/images/logo-beige-square-dark-bg.png",
+        "description": "Custom software development, mobile apps, and automation solutions in Australia.",
+        "founder": {
+          "@type": "Person",
+          "name": "Mitchell Brouwer",
+          "jobTitle": "Founder",
+          "url": "https://mitchellbrouwer.dev",
+          "sameAs": [
+            "https://www.linkedin.com/in/mitchellbrouwer/",
+            "https://github.com/mitchellabrouwer"
+          ]
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/mitchellbrouwer/",
+          "https://github.com/mitchellabrouwer"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "url": "https://mitchellbrouwer.dev/#contact"
+        },
+        "areaServed": "AU",
+        "knowsAbout": [
+          "Custom Software Development",
+          "Mobile App Development",
+          "Web Application Development",
+          "Automation Solutions",
+          "AI Integration"
+        ]
+      }
+    </script>
   </head>
   <body class="bg-catppuccin-base text-catppuccin-text min-h-screen">
-    <header class="bg-catppuccin-mantle py-4 fixed w-full top-0 z-50 relative">
+    <header class="bg-catppuccin-mantle py-4 fixed w-full top-0 z-50">
       <div class="container mx-auto px-4 flex justify-between items-center">
         <a href="#" class="flex items-center hover:opacity-80 transition">
           <img
@@ -344,8 +397,7 @@
               Collaborative App Development
             </h3>
             <p class="text-catppuccin-subtext1">
-              We build together — your input shapes every decision from concept
-              to launch
+              Your input shapes every decision from concept to launch
             </p>
           </div>
           <div class="text-center">
@@ -396,7 +448,7 @@
               Ongoing Partnership
             </h3>
             <p class="text-catppuccin-subtext1">
-              Launch is just the beginning — we're here for updates,
+              Launch is just the beginning. We stay for updates,
               improvements, and growth
             </p>
           </div>
@@ -408,9 +460,10 @@
           <div class="md:col-span-5">
             <div class="relative">
               <img
-                src="images/profile/profile-photo.jpeg"
+                src="images/profile/profile-photo.webp"
                 alt="Mitchell Brouwer, Founder"
                 class="w-full max-w-xs mx-auto rounded-2xl object-cover"
+                width="1940" height="2132" loading="lazy"
               />
             </div>
           </div>
@@ -569,19 +622,22 @@
             <div class="w-full xl:w-1/2 xl:flex-1">
               <div class="flex gap-4 justify-center h-96 xl:h-[500px]">
                 <img
-                  src="images/projects/job-search-works/jsw-1-portrait.png"
+                  src="images/projects/job-search-works/jsw-1-portrait.webp"
                   alt="Job Search Works - Profile Setup"
                   class="flex-1 max-w-[180px] h-full object-contain rounded-lg"
+                  width="1419" height="2796" loading="lazy"
                 />
                 <img
-                  src="images/projects/job-search-works/jsw-2-portrait.png"
+                  src="images/projects/job-search-works/jsw-2-portrait.webp"
                   alt="Job Search Works - AI Applications"
                   class="flex-1 max-w-[180px] h-full object-contain rounded-lg"
+                  width="1419" height="2796" loading="lazy"
                 />
                 <img
-                  src="images/projects/job-search-works/jsw-3-portrait.png"
+                  src="images/projects/job-search-works/jsw-3-portrait.webp"
                   alt="Job Search Works - Progress Tracking"
                   class="flex-1 max-w-[180px] h-full object-contain rounded-lg hidden sm:block"
+                  width="1419" height="2796" loading="lazy"
                 />
               </div>
             </div>
@@ -640,19 +696,22 @@
             <div class="w-full xl:w-1/2 xl:flex-1">
               <div class="flex gap-4 justify-center h-96 xl:h-[500px]">
                 <img
-                  src="images/projects/eat-gav/eatgav-1.png"
+                  src="images/projects/eat-gav/eatgav-1.webp"
                   alt="Eatgav - Recipe Search"
                   class="flex-1 max-w-[180px] h-full object-contain rounded-lg"
+                  width="1419" height="2796" loading="lazy"
                 />
                 <img
-                  src="images/projects/eat-gav/eatgav-2.png"
+                  src="images/projects/eat-gav/eatgav-2.webp"
                   alt="Eatgav - Recipe Details"
                   class="flex-1 max-w-[180px] h-full object-contain rounded-lg"
+                  width="1419" height="2796" loading="lazy"
                 />
                 <img
-                  src="images/projects/eat-gav/eatgav-3.png"
+                  src="images/projects/eat-gav/eatgav-3.webp"
                   alt="Eatgav - User Dashboard"
                   class="flex-1 max-w-[180px] h-full object-contain rounded-lg hidden sm:block"
+                  width="1419" height="2796" loading="lazy"
                 />
               </div>
             </div>
@@ -727,19 +786,22 @@
             <div class="w-full xl:w-1/2 xl:flex-1">
               <div class="flex gap-4 justify-center h-96 xl:h-[500px]">
                 <img
-                  src="images/projects/catch-casey/catchcasey-1.png"
+                  src="images/projects/catch-casey/catchcasey-1.webp"
                   alt="Catch Casey - AR Gameplay"
                   class="flex-1 max-w-[180px] h-full object-contain rounded-lg"
+                  width="1419" height="2796" loading="lazy"
                 />
                 <img
-                  src="images/projects/catch-casey/catchcasey-2.png"
+                  src="images/projects/catch-casey/catchcasey-2.webp"
                   alt="Catch Casey - Detective Dashboard"
                   class="flex-1 max-w-[180px] h-full object-contain rounded-lg"
+                  width="1419" height="2796" loading="lazy"
                 />
                 <img
-                  src="images/projects/catch-casey/catchcasey-3.png"
+                  src="images/projects/catch-casey/catchcasey-3.webp"
                   alt="Catch Casey - Learning Progress"
                   class="flex-1 max-w-[180px] h-full object-contain rounded-lg hidden sm:block"
+                  width="1419" height="2796" loading="lazy"
                 />
               </div>
             </div>
@@ -805,11 +867,99 @@
           </h2>
         </div>
 
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 gap-8"
-          id="otherProjectsGrid"
-        >
-          <!-- Other project cards will be inserted here by JavaScript -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Red Pocket Concept -->
+          <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col">
+            <div class="flex gap-2 p-4 bg-catppuccin-surface1 h-80">
+              <img src="images/projects/red-pocket/redpocket-1.webp" alt="Red Pocket Concept - Mobile View 1" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
+              <img src="images/projects/red-pocket/redpocket-2.webp" alt="Red Pocket Concept - Mobile View 2" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
+              <img src="images/projects/red-pocket/redpocket-3.webp" alt="Red Pocket Concept - Mobile View 3" class="flex-1 max-w-[150px] h-full object-contain hidden sm:block" width="1419" height="2796" loading="lazy" />
+            </div>
+            <div class="p-4 flex flex-col flex-grow">
+              <h3 class="text-xl font-medium mb-2 truncate">
+                <span class="text-catppuccin-beige">client</span>.<span class="text-catppuccin-blue">red_pocket_concept</span>
+              </h3>
+              <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">Engineered a proof-of-concept web app that allows users to exchange electronic gift cards ('red pockets').</p>
+              <div class="mt-auto flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">React</span></span>
+                <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">Node.js</span></span>
+                <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">MongoDB</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Financial Categorisation Tool -->
+          <a href="https://centsibility.org/" target="_blank" rel="noopener noreferrer" class="block group">
+            <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full">
+              <div class="flex gap-2 p-4 bg-catppuccin-surface1 h-80">
+                <img src="images/projects/centsibility/centsibility-1.webp" alt="Financial Categorisation Tool - Mobile View 1" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
+                <img src="images/projects/centsibility/centsibility-2.webp" alt="Financial Categorisation Tool - Mobile View 2" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
+                <img src="images/projects/centsibility/centsibility-3.webp" alt="Financial Categorisation Tool - Mobile View 3" class="flex-1 max-w-[150px] h-full object-contain hidden sm:block" width="1419" height="2796" loading="lazy" />
+              </div>
+              <div class="p-4 flex flex-col flex-grow">
+                <h3 class="text-xl font-medium mb-2 truncate">
+                  <span class="text-catppuccin-beige">client</span>.<span class="text-catppuccin-blue">financial_categorisation_tool</span>
+                </h3>
+                <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">Built a front-end application using a custom TensorFlow.js model to automatically categorise and organise financial data through AI-driven keyword searches.</p>
+                <div class="mt-auto flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">TensorFlow.js</span></span>
+                  <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">React</span></span>
+                  <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">AI</span></span>
+                </div>
+                <div class="mt-3 text-catppuccin-blue group-hover:text-catppuccin-sapphire">
+                  <span class="font-mono">view project &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Mac Voice Whispers -->
+          <a href="https://github.com/mitchellabrouwer/mac_voice_whispers" target="_blank" rel="noopener noreferrer" class="block group">
+            <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full">
+              <div class="h-80 p-4 bg-catppuccin-surface1">
+                <img src="images/projects/mac-voice-whispers.webp" alt="Mac Voice Whispers" class="w-full h-full object-contain" width="2000" height="2000" loading="lazy" />
+              </div>
+              <div class="p-4 flex flex-col flex-grow">
+                <h3 class="text-xl font-medium mb-2 truncate">
+                  <span class="text-catppuccin-beige">client</span>.<span class="text-catppuccin-blue">mac_voice_whispers</span>
+                </h3>
+                <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">A simple macOS app that uses OpenAI's Whisper model to convert spoken words into text directly within the application. Built with Swift and SwiftUI.</p>
+                <div class="mt-auto flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">Swift</span></span>
+                  <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">SwiftUI</span></span>
+                  <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">AI</span></span>
+                </div>
+                <div class="mt-3 text-catppuccin-blue group-hover:text-catppuccin-sapphire">
+                  <span class="font-mono">view project &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Phonics Game for Kids -->
+          <a href="https://github.com/mitchellabrouwer/phonic-ai-game" target="_blank" rel="noopener noreferrer" class="block group">
+            <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full">
+              <div class="flex gap-2 p-4 bg-catppuccin-surface1 h-80">
+                <img src="images/projects/phonics-game/phonics-game-1.webp" alt="Phonics Game for Kids - Mobile View 1" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
+                <img src="images/projects/phonics-game/phonics-game-2.webp" alt="Phonics Game for Kids - Mobile View 2" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
+                <img src="images/projects/phonics-game/phonics-game-3.webp" alt="Phonics Game for Kids - Mobile View 3" class="flex-1 max-w-[150px] h-full object-contain hidden sm:block" width="1419" height="2796" loading="lazy" />
+              </div>
+              <div class="p-4 flex flex-col flex-grow">
+                <h3 class="text-xl font-medium mb-2 truncate">
+                  <span class="text-catppuccin-beige">client</span>.<span class="text-catppuccin-blue">phonics_game_for_kids</span>
+                </h3>
+                <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">Created an engaging phonics learning game for children using Next.js and Phaser, focusing on interactive educational content.</p>
+                <div class="mt-auto flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">Next.js</span></span>
+                  <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">Phaser</span></span>
+                  <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full"><span class="text-catppuccin-teal">TypeScript</span></span>
+                </div>
+                <div class="mt-3 text-catppuccin-blue group-hover:text-catppuccin-sapphire">
+                  <span class="font-mono">view project &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -914,234 +1064,6 @@
       </section>
 
       <script>
-        const projects = [
-          {
-            title: "Job Search Works",
-            description:
-              "Helps job seekers apply to more positions while reducing tedious paperwork through smart automation.",
-            type: "mockups",
-            images: [
-              "images/projects/job-search-works/jsw-1-portrait.png",
-              "images/projects/job-search-works/jsw-2-portrait.png",
-              "images/projects/job-search-works/jsw-3-portrait.png",
-            ],
-            technologies: ["Next.js", "TypeScript", "AI", "SaaS"],
-            links: {
-              demo: "https://jobsearch.works/",
-            },
-          },
-          {
-            title: "Catch Casey",
-            description:
-              "An AR learning game that achieved #2 in paid education apps. Getting children outside while they learn through interactive detective gameplay.",
-            type: "mockups",
-            images: [
-              "images/projects/catch-casey/catchcasey-1.png",
-              "images/projects/catch-casey/catchcasey-2.png",
-              "images/projects/catch-casey/catchcasey-3.png",
-            ],
-            technologies: ["React Native", "Expo", "AR", "Geolocation"],
-            links: {
-              demo: "https://apps.apple.com/us/app/catch-casey/id6742388969?uo=2",
-            },
-          },
-          {
-            title: "Eatgav.com",
-            description:
-              "Makes plant-based cooking accessible with smart recipe discovery and seamless user experience.",
-            type: "mockups",
-            images: [
-              "images/projects/eat-gav/eatgav-1.png",
-              "images/projects/eat-gav/eatgav-2.png",
-              "images/projects/eat-gav/eatgav-3.png",
-            ],
-            technologies: ["Next.js", "Supabase", "Stripe", "SQL"],
-            links: {
-              demo: "https://eatgav.com",
-            },
-          },
-          {
-            title: "Red Pocket Concept",
-            description:
-              "Engineered a proof-of-concept web app that allows users to exchange electronic gift cards ('red pockets').",
-            type: "mockups",
-            images: [
-              "images/projects/red-pocket/redpocket-1.png",
-              "images/projects/red-pocket/redpocket-2.png",
-              "images/projects/red-pocket/redpocket-3.png",
-            ],
-            technologies: ["React", "Node.js", "MongoDB"],
-            links: {},
-          },
-          {
-            title: "Financial Categorisation Tool",
-            description:
-              "Built a front-end application using a custom TensorFlow.js model to automatically categorise and organise financial data through AI-driven keyword searches.",
-            type: "mockups",
-            images: [
-              "images/projects/centsibility/centsibility-1.png",
-              "images/projects/centsibility/centsibility-2.png",
-              "images/projects/centsibility/centsibility-3.png",
-            ],
-            technologies: ["TensorFlow.js", "React", "AI"],
-            links: {
-              demo: "https://centsibility.org/",
-              repository:
-                "https://github.com/mitchellabrouwer/financial-categoriser",
-            },
-          },
-          {
-            title: "Mac Voice Whispers",
-            description:
-              "A simple macOS app that uses OpenAI's Whisper model to convert spoken words into text directly within the application. Built with Swift and SwiftUI.",
-            type: "single",
-            image: "images/projects/mac-voice-whispers.png",
-            technologies: ["Swift", "SwiftUI", "AI"],
-            links: {
-              repository:
-                "https://github.com/mitchellabrouwer/mac_voice_whispers",
-            },
-          },
-          {
-            title: "Phonics Game for Kids",
-            description:
-              "Created an engaging phonics learning game for children using Next.js and Phaser, focusing on interactive educational content.",
-            type: "mockups",
-            images: [
-              "images/projects/phonics-game/phonics-game-1.png",
-              "images/projects/phonics-game/phonics-game-2.png",
-              "images/projects/phonics-game/phonics-game-3.png",
-            ],
-            technologies: ["Next.js", "Phaser", "TypeScript"],
-            links: {
-              repository: "https://github.com/mitchellabrouwer/phonic-ai-game",
-            },
-          },
-        ];
-
-        // Project card template
-        function createProjectCard(project) {
-          // Determine the primary link for the project
-          let primaryLink = "";
-          if (project.links.demo) {
-            primaryLink = project.links.demo;
-          } else if (project.links.repository) {
-            primaryLink = project.links.repository;
-          } else if (project.links.company) {
-            primaryLink = project.links.company;
-          }
-
-          const imageSection =
-            project.type === "mockups"
-              ? `
-            <div class="flex gap-2 p-4 bg-catppuccin-surface1 h-80">
-              <img
-                src="${project.images[0]}"
-                alt="${project.title} - Mobile View 1"
-                class="flex-1 max-w-[150px] h-full object-contain"
-              />
-              <img
-                src="${project.images[1]}"
-                alt="${project.title} - Mobile View 2"
-                class="flex-1 max-w-[150px] h-full object-contain"
-              />
-              <img
-                src="${project.images[2]}"
-                alt="${project.title} - Mobile View 3"
-                class="flex-1 max-w-[150px] h-full object-contain hidden sm:block"
-              />
-            </div>
-          `
-              : `
-            <div class="h-80 p-4 bg-catppuccin-surface1">
-              <img
-                src="${project.image}"
-                alt="${project.title}"
-                class="w-full h-full object-contain"
-              />
-            </div>
-          `;
-
-          // If there's no link, just return a normal card
-          if (!primaryLink) {
-            return `
-              <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col">
-                ${imageSection}
-                <div class="p-4 flex flex-col flex-grow">
-                  <h3 class="text-xl font-medium mb-2 truncate">
-                    <span class="text-catppuccin-beige">client</span>.<span class="text-catppuccin-blue">${project.title
-                      .toLowerCase()
-                      .replace(/\s+/g, "_")}</span>
-                  </h3>
-                  <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">${
-                    project.description
-                  }</p>
-                  
-                  <div class="mt-auto flex flex-wrap gap-2">
-                    ${project.technologies
-                      .map(
-                        (tech) => `
-                      <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full">
-                        <span class="text-catppuccin-teal">${tech}</span>
-                      </span>
-                    `,
-                      )
-                      .join("")}
-                  </div>
-                </div>
-              </div>
-            `;
-          }
-
-          // If there is a link, make the whole card clickable
-          return `
-            <a href="${primaryLink}" target="_blank" rel="noopener noreferrer" class="block group">
-              <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full">
-                ${imageSection}
-                <div class="p-4 flex flex-col flex-grow">
-                  <h3 class="text-xl font-medium mb-2 truncate">
-                    <span class="text-catppuccin-beige">client</span>.<span class="text-catppuccin-blue">${project.title
-                      .toLowerCase()
-                      .replace(/\s+/g, "_")}</span>
-                  </h3>
-                  <p class="text-catppuccin-subtext0 mb-4 line-clamp-3">${
-                    project.description
-                  }</p>
-                  
-                  <div class="mt-auto flex flex-wrap gap-2">
-                    ${project.technologies
-                      .map(
-                        (tech) => `
-                      <span class="px-3 py-1 bg-catppuccin-crust text-sm rounded-full">
-                        <span class="text-catppuccin-teal">${tech}</span>
-                      </span>
-                    `,
-                      )
-                      .join("")}
-                  </div>
-                  
-                  <div class="mt-3 text-catppuccin-blue group-hover:text-catppuccin-sapphire">
-                    <span class="font-mono">view project →</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          `;
-        }
-
-        // Render other projects (excluding featured projects)
-        document.getElementById("otherProjectsGrid").innerHTML = projects
-          .filter(
-            (project) =>
-              project.title !== "Job Search Works" &&
-              project.title !== "Catch Casey" &&
-              project.title !== "Eatgav.com" &&
-              project.title !== "freeCodeCamp Contributions" &&
-              project.title !== "JavaScript Algorithms Mentor",
-          )
-          .map(createProjectCard)
-          .join("");
-
         // Fade-in animation on scroll
         const observerOptions = {
           threshold: 0.1,
@@ -1348,7 +1270,7 @@
           </a>
         </div>
         <p class="text-catppuccin-subtext0">
-          © 2025 Brouwer Digital. All rights reserved.
+          © 2026 Brouwer Digital. All rights reserved.
         </p>
       </div>
     </footer>
