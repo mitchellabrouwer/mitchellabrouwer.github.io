@@ -42,11 +42,19 @@
     <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="images/favicon/site.webmanifest" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
+            fontFamily: {
+              sans: ["Manrope", "system-ui", "sans-serif"],
+
+            },
             colors: {
               catppuccin: {
                 base: "#2a2520",
@@ -106,6 +114,15 @@
       };
     </script>
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      ::selection {
+        background: rgba(141,180,170,0.3);
+        color: #f0ede8;
+      }
+
       section {
         scroll-margin-top: 6rem;
       }
@@ -125,6 +142,45 @@
       .fade-in-section.visible {
         opacity: 1;
         transform: translateY(0);
+      }
+
+      header nav:not(#mobileNav) a {
+        position: relative;
+      }
+
+      header nav:not(#mobileNav) a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #d4bba2;
+        transition: width 0.3s ease;
+      }
+
+      header nav:not(#mobileNav) a:hover::after {
+        width: 100%;
+      }
+
+      .project-card img {
+        transition: transform 0.4s ease;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.03);
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        pointer-events: none;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        background-size: 256px 256px;
       }
 
       @media (max-width: 768px) {
@@ -192,7 +248,7 @@
     </script>
   </head>
   <body class="bg-catppuccin-base text-catppuccin-text min-h-screen">
-    <header class="bg-catppuccin-mantle py-4 fixed w-full top-0 z-50">
+    <header class="backdrop-blur-md bg-catppuccin-mantle/80 py-4 fixed w-full top-0 z-50 border-b border-catppuccin-surface0">
       <div class="container mx-auto px-4 flex justify-between items-center">
         <a href="#" class="flex items-center hover:opacity-80 transition">
           <img
@@ -339,6 +395,7 @@
       <section
         id="home"
         class="min-h-[75vh] md:min-h-[85vh] flex flex-col justify-center items-center text-center relative mb-20"
+        style="background: radial-gradient(ellipse at center, rgba(141,180,170,0.08) 0%, rgba(212,187,162,0.03) 50%, transparent 80%)"
       >
         <p
           class="text-sm md:text-base text-catppuccin-subtext0 font-light mb-4 tracking-wide uppercase"
@@ -350,6 +407,7 @@
         >
           Brouwer Digital
         </h1>
+        <div class="w-16 h-px bg-catppuccin-surface2 mx-auto mb-6"></div>
         <p
           class="text-xl md:text-2xl text-catppuccin-subtext1 font-light tracking-wide mb-12"
         >
@@ -385,7 +443,7 @@
       <section id="competencies" class="mb-32 fade-in-section">
         <div class="text-center mb-16">
           <h2
-            class="text-4xl md:text-5xl font-extralight mb-8 text-catppuccin-beige tracking-tight"
+            class="text-4xl md:text-5xl font-light mb-8 text-catppuccin-beige tracking-tight"
           >
             What We Build
           </h2>
@@ -397,7 +455,7 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-8 mb-16">
-          <div class="text-center">
+          <div class="text-center rounded-lg p-6 hover:-translate-y-1 hover:bg-catppuccin-surface0/50 transition-all duration-300">
             <div
               class="w-16 h-16 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-4"
             >
@@ -423,7 +481,7 @@
               automation to generative features
             </p>
           </div>
-          <div class="text-center">
+          <div class="text-center rounded-lg p-6 hover:-translate-y-1 hover:bg-catppuccin-surface0/50 transition-all duration-300">
             <div
               class="w-16 h-16 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-4"
             >
@@ -449,7 +507,7 @@
               not theoretical tech demos
             </p>
           </div>
-          <div class="text-center">
+          <div class="text-center rounded-lg p-6 hover:-translate-y-1 hover:bg-catppuccin-surface0/50 transition-all duration-300">
             <div
               class="w-16 h-16 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-4"
             >
@@ -485,14 +543,14 @@
               <img
                 src="images/profile/profile-photo.webp"
                 alt="Mitchell Brouwer, Founder"
-                class="w-full max-w-xs mx-auto rounded-2xl object-cover"
+                class="w-full max-w-xs mx-auto rounded-2xl object-cover ring-2 ring-catppuccin-surface2 ring-offset-4 ring-offset-catppuccin-base"
                 width="1940" height="2132" loading="lazy"
               />
             </div>
           </div>
           <div class="md:col-span-7">
             <h2
-              class="text-3xl md:text-4xl font-extralight mb-6 text-catppuccin-beige tracking-tight"
+              class="text-3xl md:text-4xl font-light mb-6 text-catppuccin-beige tracking-tight"
             >
               Meet Our Founder
             </h2>
@@ -527,7 +585,7 @@
       <section id="why-us" class="mb-32 fade-in-section">
         <div class="text-center mb-16">
           <h2
-            class="text-4xl md:text-5xl font-extralight mb-8 text-catppuccin-beige tracking-tight"
+            class="text-4xl md:text-5xl font-light mb-8 text-catppuccin-beige tracking-tight"
           >
             Why Work With Us
           </h2>
@@ -540,7 +598,7 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-catppuccin-surface0 rounded-lg p-8 text-center">
+          <div class="bg-catppuccin-surface0 rounded-lg p-8 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <div
               class="w-16 h-16 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-6"
             >
@@ -573,7 +631,7 @@
             </p>
           </div>
 
-          <div class="bg-catppuccin-surface0 rounded-lg p-8 text-center">
+          <div class="bg-catppuccin-surface0 rounded-lg p-8 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <div
               class="w-16 h-16 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-6"
             >
@@ -600,7 +658,7 @@
             </p>
           </div>
 
-          <div class="bg-catppuccin-surface0 rounded-lg p-8 text-center">
+          <div class="bg-catppuccin-surface0 rounded-lg p-8 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <div
               class="w-16 h-16 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-6"
             >
@@ -629,11 +687,13 @@
         </div>
       </section>
 
+      <hr class="border-catppuccin-surface0 my-16 max-w-xs mx-auto" />
+
       <!-- Client Work -->
       <section id="projects" class="mb-32 fade-in-section">
         <div class="text-center mb-20">
           <h2
-            class="text-4xl md:text-5xl font-extralight mb-8 text-catppuccin-beige tracking-tight"
+            class="text-4xl md:text-5xl font-light mb-8 text-catppuccin-beige tracking-tight"
           >
             Featured Client Work
           </h2>
@@ -672,7 +732,7 @@
                 >CLIENT PROJECT</span
               >
               <h3
-                class="text-3xl md:text-4xl font-extralight mb-4 mt-4 text-catppuccin-beige"
+                class="text-3xl md:text-4xl font-light mb-4 mt-4 text-catppuccin-beige tracking-tight"
               >
                 Job Search Works
               </h3>
@@ -705,7 +765,7 @@
                 href="https://jobsearch.works/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 hover:bg-catppuccin-surface2 text-catppuccin-text rounded-lg transition"
+                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 text-catppuccin-text hover:bg-catppuccin-surface2 rounded-lg transition-all duration-200"
               >
                 Visit Live Site →
               </a>
@@ -746,7 +806,7 @@
                 >CLIENT PROJECT</span
               >
               <h3
-                class="text-3xl md:text-4xl font-extralight mb-4 mt-4 text-catppuccin-beige"
+                class="text-3xl md:text-4xl font-light mb-4 mt-4 text-catppuccin-beige tracking-tight"
               >
                 Eatgav.com
               </h3>
@@ -779,7 +839,7 @@
                 href="https://eatgav.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 hover:bg-catppuccin-surface2 text-catppuccin-text rounded-lg transition"
+                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 text-catppuccin-text hover:bg-catppuccin-surface2 rounded-lg transition-all duration-200"
               >
                 Visit Live Site →
               </a>
@@ -792,7 +852,7 @@
       <section id="products" class="mb-32 fade-in-section">
         <div class="text-center mb-20">
           <h2
-            class="text-4xl md:text-5xl font-extralight mb-8 text-catppuccin-beige tracking-tight"
+            class="text-4xl md:text-5xl font-light mb-8 text-catppuccin-beige tracking-tight"
           >
             Our Products
           </h2>
@@ -836,7 +896,7 @@
                 >OUR PRODUCT</span
               >
               <h3
-                class="text-3xl md:text-4xl font-extralight mb-4 mt-4 text-catppuccin-beige"
+                class="text-3xl md:text-4xl font-light mb-4 mt-4 text-catppuccin-beige tracking-tight"
               >
                 Catch Casey
               </h3>
@@ -872,7 +932,7 @@
                 href="https://apps.apple.com/us/app/catch-casey/id6742388969?uo=2"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 hover:bg-catppuccin-surface2 text-catppuccin-text rounded-lg transition"
+                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 text-catppuccin-text hover:bg-catppuccin-surface2 rounded-lg transition-all duration-200"
               >
                 Download on App Store →
               </a>
@@ -912,7 +972,7 @@
                 >OUR PRODUCT</span
               >
               <h3
-                class="text-3xl md:text-4xl font-extralight mb-4 mt-4 text-catppuccin-beige"
+                class="text-3xl md:text-4xl font-light mb-4 mt-4 text-catppuccin-beige tracking-tight"
               >
                 Ask-Flash
               </h3>
@@ -946,7 +1006,7 @@
                 href="https://ask-flash.web.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 hover:bg-catppuccin-surface2 text-catppuccin-text rounded-lg transition"
+                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 text-catppuccin-text hover:bg-catppuccin-surface2 rounded-lg transition-all duration-200"
               >
                 Visit Live Site →
               </a>
@@ -987,7 +1047,7 @@
                 >OUR PRODUCT</span
               >
               <h3
-                class="text-3xl md:text-4xl font-extralight mb-4 mt-4 text-catppuccin-beige"
+                class="text-3xl md:text-4xl font-light mb-4 mt-4 text-catppuccin-beige tracking-tight"
               >
                 Zen Zeds
               </h3>
@@ -1021,7 +1081,7 @@
                 href="https://zen-zeds-dev-site.web.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 hover:bg-catppuccin-surface2 text-catppuccin-text rounded-lg transition"
+                class="inline-flex items-center px-6 py-3 bg-catppuccin-surface1 text-catppuccin-text hover:bg-catppuccin-surface2 rounded-lg transition-all duration-200"
               >
                 Visit Live Site →
               </a>
@@ -1034,7 +1094,7 @@
       <section id="additional-work" class="mb-32 fade-in-section">
         <div class="text-center mb-12">
           <h2
-            class="text-3xl md:text-4xl font-extralight text-catppuccin-beige tracking-tight"
+            class="text-3xl md:text-4xl font-light text-catppuccin-beige tracking-tight"
           >
             Additional Work
           </h2>
@@ -1042,7 +1102,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <!-- Red Pocket Concept -->
-          <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col">
+          <div class="project-card bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col">
             <div class="flex gap-2 p-4 bg-catppuccin-surface1 h-80">
               <img src="images/projects/red-pocket/redpocket-1.webp" alt="Red Pocket Concept - Mobile View 1" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
               <img src="images/projects/red-pocket/redpocket-2.webp" alt="Red Pocket Concept - Mobile View 2" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
@@ -1063,7 +1123,7 @@
 
           <!-- Financial Categorisation Tool -->
           <a href="https://centsibility.org/" target="_blank" rel="noopener noreferrer" class="block group">
-            <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full">
+            <div class="project-card bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div class="flex gap-2 p-4 bg-catppuccin-surface1 h-80">
                 <img src="images/projects/centsibility/centsibility-1.webp" alt="Financial Categorisation Tool - Mobile View 1" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
                 <img src="images/projects/centsibility/centsibility-2.webp" alt="Financial Categorisation Tool - Mobile View 2" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
@@ -1088,7 +1148,7 @@
 
           <!-- Phonics Game for Kids -->
           <a href="https://github.com/mitchellabrouwer/phonic-ai-game" target="_blank" rel="noopener noreferrer" class="block group">
-            <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full">
+            <div class="project-card bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div class="flex gap-2 p-4 bg-catppuccin-surface1 h-80">
                 <img src="images/projects/phonics-game/phonics-game-1.webp" alt="Phonics Game for Kids - Mobile View 1" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
                 <img src="images/projects/phonics-game/phonics-game-2.webp" alt="Phonics Game for Kids - Mobile View 2" class="flex-1 max-w-[150px] h-full object-contain" width="1419" height="2796" loading="lazy" />
@@ -1117,7 +1177,7 @@
       <section id="tools" class="mb-32 fade-in-section">
         <div class="text-center mb-12">
           <h2
-            class="text-3xl md:text-4xl font-extralight text-catppuccin-beige tracking-tight"
+            class="text-3xl md:text-4xl font-light text-catppuccin-beige tracking-tight"
           >
             Tools
           </h2>
@@ -1131,7 +1191,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <!-- Wiromatic -->
           <a href="https://github.com/mitchellabrouwer/wiromatic" target="_blank" rel="noopener noreferrer" class="block group">
-            <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full">
+            <div class="project-card bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div class="h-80 p-4 bg-catppuccin-surface1">
                 <img src="images/projects/wiromatic/wiromatic-1.webp" alt="Wiromatic - AI Task Scheduler Interface" class="w-full h-full object-contain" width="2000" height="2000" loading="lazy" />
               </div>
@@ -1154,7 +1214,7 @@
 
           <!-- Mac Voice Whispers -->
           <a href="https://github.com/mitchellabrouwer/mac_voice_whispers" target="_blank" rel="noopener noreferrer" class="block group">
-            <div class="bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 transition flex flex-col h-full">
+            <div class="project-card bg-catppuccin-surface0 rounded-lg overflow-hidden shadow-lg hover:bg-catppuccin-surface1 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div class="h-80 p-4 bg-catppuccin-surface1">
                 <img src="images/projects/mac-voice-whispers.webp" alt="Mac Voice Whispers" class="w-full h-full object-contain" width="2000" height="2000" loading="lazy" />
               </div>
@@ -1181,7 +1241,7 @@
       <section id="how-we-work" class="mb-32 fade-in-section">
         <div class="text-center mb-16">
           <h2
-            class="text-4xl md:text-5xl font-extralight mb-8 text-catppuccin-beige tracking-tight"
+            class="text-4xl md:text-5xl font-light mb-8 text-catppuccin-beige tracking-tight"
           >
             How We Work
           </h2>
@@ -1192,8 +1252,9 @@
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-12">
-          <div class="text-center">
+        <div class="grid md:grid-cols-3 gap-12 relative">
+          <div class="hidden md:block absolute top-10 left-[20%] right-[20%] border-t-2 border-dashed border-catppuccin-surface1"></div>
+          <div class="text-center relative z-10">
             <div
               class="w-20 h-20 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-6"
             >
@@ -1221,7 +1282,7 @@
             </p>
           </div>
 
-          <div class="text-center">
+          <div class="text-center relative z-10">
             <div
               class="w-20 h-20 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-6"
             >
@@ -1248,7 +1309,7 @@
             </p>
           </div>
 
-          <div class="text-center">
+          <div class="text-center relative z-10">
             <div
               class="w-20 h-20 bg-catppuccin-surface1 rounded-full flex items-center justify-center mx-auto mb-6"
             >
@@ -1298,10 +1359,12 @@
         });
       </script>
 
+      <hr class="border-catppuccin-surface0 my-16 max-w-xs mx-auto" />
+
       <section id="contact" class="mb-16 fade-in-section">
         <div class="text-center mb-12">
           <h2
-            class="text-4xl md:text-5xl font-extralight mb-8 text-catppuccin-beige tracking-tight"
+            class="text-4xl md:text-5xl font-light mb-8 text-catppuccin-beige tracking-tight"
           >
             Start a Conversation
           </h2>
@@ -1396,7 +1459,7 @@
             <button
               type="submit"
               id="submitButton"
-              class="w-full md:w-auto md:max-w-[200px] bg-catppuccin-surface1 hover:bg-catppuccin-surface2 text-catppuccin-text font-medium py-2 px-8 rounded-lg transition border border-catppuccin-surface2 flex items-center justify-center"
+              class="w-full md:w-auto md:max-w-[200px] bg-catppuccin-surface1 hover:bg-catppuccin-surface2 text-catppuccin-text font-medium py-2 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
             >
               <span id="buttonText">Send Message</span>
               <svg
@@ -1463,14 +1526,14 @@
       </section>
     </main>
 
-    <footer class="bg-catppuccin-mantle py-4">
+    <footer class="bg-catppuccin-mantle py-8 border-t border-catppuccin-surface0">
       <div class="container mx-auto text-center">
         <div class="flex justify-center space-x-6 mb-4">
           <a
             href="https://www.linkedin.com/in/mitchellbrouwer/"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-catppuccin-blue hover:text-catppuccin-sapphire"
+            class="text-catppuccin-blue hover:text-catppuccin-sapphire hover:-translate-y-0.5 transition-all duration-200 inline-block"
           >
             <span class="font-mono">linkedin →</span>
           </a>
@@ -1478,7 +1541,7 @@
             href="https://github.com/mitchellabrouwer"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-catppuccin-blue hover:text-catppuccin-sapphire"
+            class="text-catppuccin-blue hover:text-catppuccin-sapphire hover:-translate-y-0.5 transition-all duration-200 inline-block"
           >
             <span class="font-mono">github →</span>
           </a>

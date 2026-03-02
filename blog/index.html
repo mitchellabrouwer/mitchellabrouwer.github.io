@@ -11,11 +11,19 @@
     <link rel="icon" href="../images/favicon/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="../images/favicon/apple-touch-icon.png" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
+            fontFamily: {
+              sans: ["Manrope", "system-ui", "sans-serif"],
+
+            },
             colors: {
               catppuccin: {
                 base: "#2a2520",
@@ -56,7 +64,7 @@
     </script>
   </head>
   <body class="bg-catppuccin-base text-catppuccin-text min-h-screen flex flex-col">
-    <header class="bg-catppuccin-mantle py-4 fixed w-full top-0 z-50">
+    <header class="backdrop-blur-md bg-catppuccin-mantle/80 py-4 fixed w-full top-0 z-50 border-b border-catppuccin-surface0">
       <div class="container mx-auto px-4 flex justify-between items-center">
         <a href="/" class="flex items-center hover:opacity-80 transition">
           <img src="../images/logo-beige.svg" alt="Mitchell Brouwer Logo" class="w-8 h-8 mr-3" />
@@ -109,13 +117,17 @@
     </script>
 
     <main class="container mx-auto px-4 pt-28 pb-16 max-w-3xl flex-1">
-      <h1 class="text-4xl md:text-5xl font-extralight mb-12 text-catppuccin-beige tracking-tight">Blog</h1>
-      <div>
-<p class="text-catppuccin-subtext0">No posts yet.</p>
+      <h1 class="text-4xl md:text-5xl font-light mb-12 text-catppuccin-beige tracking-tight">Blog</h1>
+      <div class="flex flex-col items-center justify-center py-24 text-center">
+        <svg class="w-16 h-16 text-catppuccin-surface2 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        </svg>
+        <h2 class="text-2xl font-light text-catppuccin-beige mb-3">Coming Soon</h2>
+        <p class="text-catppuccin-subtext0 max-w-md">Posts on software engineering, AI, and building products are on the way. Check back soon.</p>
       </div>
     </main>
 
-    <footer class="bg-catppuccin-mantle py-4">
+    <footer class="bg-catppuccin-mantle py-8 border-t border-catppuccin-surface0">
       <div class="container mx-auto text-center">
         <div class="flex justify-center space-x-6 mb-4">
           <a href="https://www.linkedin.com/in/mitchellbrouwer/" target="_blank" rel="noopener noreferrer" class="text-catppuccin-blue hover:text-catppuccin-sapphire">
