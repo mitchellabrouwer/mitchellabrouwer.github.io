@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog | Brouwer Digital</title>
+    <meta name="description" content="Blog posts from Brouwer Digital - software engineering, learning in public, and building products." />
+    <link rel="canonical" href="https://brouwerdigital.com/blog/" />
+
+    <link rel="icon" href="../images/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../images/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../images/favicon/apple-touch-icon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              catppuccin: {
+                base: "#2a2520",
+                mantle: "#1f1c18",
+                crust: "#171410",
+                text: "#f0ede8",
+                subtext0: "#d4bba2",
+                subtext1: "#e2d3c2",
+                surface0: "#3d3830",
+                surface1: "#4a453c",
+                surface2: "#574f44",
+                overlay0: "#6b5f50",
+                overlay1: "#7d6e5c",
+                overlay2: "#8f7e68",
+                blue: "#8db4aa",
+                lavender: "#b4a6be",
+                sapphire: "#74b7c7",
+                sky: "#89c7db",
+                teal: "#94d2c5",
+                green: "#a6d3a1",
+                yellow: "#f9d2af",
+                peach: "#fab387",
+                maroon: "#eb90ac",
+                red: "#f37ba8",
+                mauve: "#cb96f7",
+                pink: "#f5b2e7",
+                flamingo: "#f2bdcd",
+                rosewater: "#f5d0dc",
+                beige: "#d4bba2",
+                cream: "#f9f6f3",
+                warm: "#c4a894",
+                accent: "#b4a088",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-catppuccin-base text-catppuccin-text min-h-screen">
+    <header class="bg-catppuccin-mantle py-4 fixed w-full top-0 z-50">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <a href="/" class="flex items-center hover:opacity-80 transition">
+          <img src="../images/logo-beige.svg" alt="Mitchell Brouwer Logo" class="w-8 h-8 mr-3" />
+          <span class="text-catppuccin-beige tracking-wider text-lg">
+            <span class="font-medium">BROUWER</span>
+            <span class="font-thin">DIGITAL</span>
+          </span>
+        </a>
+
+        <nav class="hidden lg:flex space-x-6 text-catppuccin-subtext1">
+          <a href="/#competencies" class="hover:text-catppuccin-beige transition">Services</a>
+          <a href="/#about" class="hover:text-catppuccin-beige transition">About</a>
+          <a href="/#projects" class="hover:text-catppuccin-beige transition">Work</a>
+          <a href="/#products" class="hover:text-catppuccin-beige transition">Products</a>
+          <a href="/#tools" class="hover:text-catppuccin-beige transition">Tools</a>
+          <a href="/blog/" class="text-catppuccin-beige transition">Blog</a>
+          <a href="/#contact" class="hover:text-catppuccin-beige transition">Contact</a>
+        </nav>
+
+        <button class="lg:hidden" id="menuButton">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <nav id="mobileNav" class="hidden lg:hidden bg-catppuccin-mantle py-4 border-t border-catppuccin-surface0 absolute top-full left-0 w-full">
+        <div class="container mx-auto px-4 flex flex-col space-y-3">
+          <a href="/#competencies" class="block py-2 text-catppuccin-subtext1 hover:text-catppuccin-beige transition">Services</a>
+          <a href="/#about" class="block py-2 text-catppuccin-subtext1 hover:text-catppuccin-beige transition">About</a>
+          <a href="/#projects" class="block py-2 text-catppuccin-subtext1 hover:text-catppuccin-beige transition">Work</a>
+          <a href="/#products" class="block py-2 text-catppuccin-subtext1 hover:text-catppuccin-beige transition">Products</a>
+          <a href="/#tools" class="block py-2 text-catppuccin-subtext1 hover:text-catppuccin-beige transition">Tools</a>
+          <a href="/blog/" class="block py-2 text-catppuccin-beige transition">Blog</a>
+          <a href="/#contact" class="block py-2 text-catppuccin-subtext1 hover:text-catppuccin-beige transition">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <script>
+      const menuButton = document.getElementById("menuButton");
+      const mobileNav = document.getElementById("mobileNav");
+      const menuIcon = menuButton.querySelector(".menu-icon");
+      let isMenuOpen = false;
+      menuButton.addEventListener("click", () => {
+        isMenuOpen = !isMenuOpen;
+        mobileNav.classList.toggle("hidden");
+        menuIcon.setAttribute("d", isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16");
+      });
+    </script>
+
+    <main class="container mx-auto px-4 pt-28 pb-16 max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-extralight mb-12 text-catppuccin-beige tracking-tight">Blog</h1>
+      <div>
+<p class="text-catppuccin-subtext0">No posts yet.</p>
+      </div>
+    </main>
+
+    <footer class="bg-catppuccin-mantle py-4">
+      <div class="container mx-auto text-center">
+        <div class="flex justify-center space-x-6 mb-4">
+          <a href="https://www.linkedin.com/in/mitchellbrouwer/" target="_blank" rel="noopener noreferrer" class="text-catppuccin-blue hover:text-catppuccin-sapphire">
+            <span class="font-mono">linkedin &rarr;</span>
+          </a>
+          <a href="https://github.com/mitchellabrouwer" target="_blank" rel="noopener noreferrer" class="text-catppuccin-blue hover:text-catppuccin-sapphire">
+            <span class="font-mono">github &rarr;</span>
+          </a>
+        </div>
+        <p class="text-catppuccin-subtext0">&copy; 2026 Brouwer Digital. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
