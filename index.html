@@ -131,6 +131,16 @@
         scroll-margin-top: 7rem;
       }
 
+      @keyframes cursor-blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+
+      #contact-cursor.blinking {
+        animation: cursor-blink 0.7s step-end infinite;
+        opacity: 1;
+      }
+
       .fade-in-section {
         opacity: 0;
         transform: translateY(20px);
@@ -404,22 +414,15 @@
           Business strategy meets AI development
         </p>
         <h1
-          class="text-5xl md:text-7xl font-extralight mb-6 text-catppuccin-beige tracking-tight leading-tight"
+          class="text-5xl md:text-7xl font-extralight mb-3 md:mb-6 text-catppuccin-beige tracking-tight leading-tight"
         >
           Brouwer Digital
         </h1>
-        <div class="w-16 h-px bg-catppuccin-surface2 mx-auto mb-6"></div>
+        <div class="w-16 h-px bg-catppuccin-surface2 mx-auto mb-3 md:mb-6"></div>
         <p
-          class="text-xl md:text-2xl text-catppuccin-subtext1 font-light tracking-wide mb-12"
+          class="text-xl md:text-2xl text-catppuccin-subtext1 font-light tracking-wide mb-8 md:mb-12"
         >
           AI solutions from someone who understands your business
-        </p>
-
-        <p
-          class="text-sm md:text-lg text-catppuccin-subtext0 font-light max-w-2xl mx-auto leading-relaxed"
-        >
-          8 years in senior brand management. Now building AI-powered apps,
-          automation, and tools that help businesses work smarter.
         </p>
 
         <!-- Scroll Indicator -->
@@ -544,7 +547,7 @@
           <h2
             class="text-4xl md:text-5xl font-light mb-8 text-catppuccin-beige tracking-tight"
           >
-            What We Build
+            Services
           </h2>
           <p
             class="text-xl text-catppuccin-subtext1 font-light max-w-3xl mx-auto"
@@ -1468,10 +1471,10 @@
             Start a Conversation
           </h2>
           <p
-            class="text-xl text-catppuccin-subtext1 font-light max-w-3xl mx-auto"
+            id="contact-typing"
+            class="text-xl text-catppuccin-subtext1 font-light max-w-3xl mx-auto min-h-[2em]"
           >
-            Whether you have an AI idea or want to explore what's possible for
-            your business, let's have an honest chat
+            <span id="contact-typed"></span><span id="contact-cursor" class="inline-block w-[2px] h-[1.2em] bg-catppuccin-subtext1 align-middle ml-[2px]"></span>
           </p>
         </div>
         <div
@@ -1620,6 +1623,8 @@
                 });
               }
             });
+
+            });
           </script>
         </div>
       </section>
@@ -1701,6 +1706,40 @@
             observer.observe(section);
           }
         });
+
+        // Typing effect for contact section
+        const typedEl = document.getElementById("contact-typed");
+        const cursorEl = document.getElementById("contact-cursor");
+        const contactText = "Whether you have an AI idea or want to explore what's possible for your business, let's have an honest chat";
+
+        const typeWriter = (text, el, cursor, speed = 35) => {
+          cursor.classList.add("blinking");
+          let i = 0;
+          const type = () => {
+            if (i < text.length) {
+              el.textContent += text.charAt(i);
+              i++;
+              setTimeout(type, speed);
+            } else {
+              setTimeout(() => cursor.classList.remove("blinking"), 1500);
+            }
+          };
+          type();
+        };
+
+        const contactTypingObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => typeWriter(contactText, typedEl, cursorEl, 55), 300);
+                contactTypingObserver.disconnect();
+              }
+            });
+          },
+          { threshold: 0.01 },
+        );
+        const contactEl = document.getElementById("contact");
+        if (contactEl) contactTypingObserver.observe(contactEl);
       });
     </script>
   </body>
